@@ -1,0 +1,5 @@
+test: &default
+  STRIPE_PUBLISHABLE_KEY:	"pk_test_51K8QmuKagIQDGenET6qjzSMbUVaPeig4dcRJa7yBDURrMl1YlK8kvAGuwogWeS1G3KfWSpUUUbQAh1waACb7TkCS00AjBklEDK"
+  STRIPE_SECRET_KEY: 	"sk_test_51K8QmuKagIQDGenEdl6VQx1sapp9ln7c04KWIYNhKtT1ZiDOdaT0hbqsHuQRjuOyxJYIR2YOdLVU8SDj5aGi3CL3002b3iAH0A"
+development:
+  <<: *default
