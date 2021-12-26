@@ -18,9 +18,11 @@
     </nav>
 
     <div class="header-meta d-flex clearfix justify-content-end">
+      <% if current_client && current_client.certs.present? %>
       <div id="show-cert">
         <%= render 'shops/cart' %>
       </div>
+        <% end %>
       <% if current_client %>
         <div class="favourite-area">
           <a data-method="delete" href="/clients/sign_out"><img src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/50/000000/external-logout-screen-from-the-working-portfolio-of-a-user-classic-bold-tal-revivo.png"/></a>
