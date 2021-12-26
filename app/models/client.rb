@@ -1,4 +1,5 @@
 class Client < ApplicationRecord
+  validates :first_name, :last_name, :phone, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :certs

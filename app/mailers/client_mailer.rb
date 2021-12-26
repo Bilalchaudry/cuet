@@ -1,5 +1,5 @@
 class ClientMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'ceutisolpharma@gmail.com'
 
   def order_email_to_client
     @user = "bilalahmer1995@gmail.com"

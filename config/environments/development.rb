@@ -5,9 +5,6 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
-  config.stripe.secret_key = 'sk_test_51K8QmuKagIQDGenEdl6VQx1sapp9ln7c04KWIYNhKtT1ZiDOdaT0hbqsHuQRjuOyxJYIR2YOdLVU8SDj5aGi3CL3002b3iAH0A'
-  config.stripe.publishable_key = 'pk_test_51K8QmuKagIQDGenET6qjzSMbUVaPeig4dcRJa7yBDURrMl1YlK8kvAGuwogWeS1G3KfWSpUUUbQAh1waACb7TkCS00AjBklEDK'
-
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -37,7 +34,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.default_url_options = { host: 'localhost', port: '3000' }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
