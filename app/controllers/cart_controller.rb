@@ -1,6 +1,6 @@
 class CartController < ApplicationController
   before_action :authenticate_client!
-  before_action :check_cert_and_product, only: [:show]
+  before_action :check_cert_and_product, only: [:show, :add_to_cart]
 
   def show
     @cert_count = @cert ? @cert.cert_products.count : ''
@@ -31,6 +31,31 @@ class CartController < ApplicationController
     end
   end
 
+  def add_to_cart
+    @certs = current_client&.certs
+    @cert = @certs.find_by(ordered?: false)  if @certs
+    if @cert.present? && @certs.present?
+      quantity = params[:quantity].present? ? params[:quantity].to_i : 1
+      @cert.cert_products.create!(product_id: params[:id], quantity: quantity)
+    else
+      @cert = Cert.create(client_id: current_client.id)
+      quantity = params[:quantity].present? ? params[:quantity].to_i : 1
+      @cert.cert_products.create!(product_id: params[:id], quantity: quantity)
+    end
+    render :js => "window.location = '#{root_url}'"
+    # respond_to do |format|
+    #   if user
+    #     session[:user_id] = user.id
+    #     flash[:notice] = "Welcome back #{user.name}!"
+    #     format.html {redirect_to (:controller => 'welcome')}
+    #   else
+    #     flash[:error] = "The username and/or password is invalid!"
+    #     format.html { render :action => :new }
+    #     format.js
+    #   end
+    # end
+  end
+
   def delete
   end
 
@@ -40,10 +65,12 @@ class CartController < ApplicationController
     @certs = current_client&.certs
     @cert = @certs.find_by(ordered?: false)  if @certs
     if @cert.present? && @certs.present?
-      @cert.cert_products.create(product_id: params[:product_id])
+      quantity = params[:quantity].present? ? params[:quantity].to_i : 1
+      @cert.cert_products.create(product_id: params[:product_id], quantity: quantity)
     else
       @cert = Cert.create(client_id: current_client.id)
-      @cert.cert_products.create(product_id: params[:product_id])
+      quantity = params[:quantity].present? ? params[:quantity].to_i : 1
+      @cert.cert_products.create(product_id: params[:product_id], quantity: quantity)
     end
   end
 end

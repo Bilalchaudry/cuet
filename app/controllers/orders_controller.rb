@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     end
     @cert.update(ordered?: true)
     if order
-      ClientMailer.with(user: "bilalahmer1995@gmail.com").order_email_to_client.deliver_later
+      ClientMailer.with(user: current_client).order_email_to_client.deliver_later
     end
     redirect_to root_path
   end

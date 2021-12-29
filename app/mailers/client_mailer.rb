@@ -2,8 +2,13 @@ class ClientMailer < ApplicationMailer
   default from: 'ceutisolpharma@gmail.com'
 
   def order_email_to_client
-    @user = "bilalahmer1995@gmail.com"
-    # @url  = 'http://example.com/login'
-    mail(to: @user, subject: 'Order has been placed')
+    @user = params[:user]
+    mail(to: @user.email, subject: 'Order has been placed')
+  end
+
+  def welcome
+    @user = params[:user]
+    byebug
+    mail(to: @user.email, subject: 'Welcome to cuetisol')
   end
 end

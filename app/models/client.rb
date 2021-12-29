@@ -4,6 +4,10 @@ class Client < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :certs
   has_many :orders
+  after_create :send_user_notification
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  def send_user_notification
+    ClientMailer.with(user: self).welcome.deliver_later
+  end
 end
