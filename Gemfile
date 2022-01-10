@@ -13,6 +13,8 @@ gem 'stripe-rails'
 gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.1'
+#text editor active_Admin
+gem 'activeadmin_quill_editor'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
 gem 'pg', '~> 0.18.4'

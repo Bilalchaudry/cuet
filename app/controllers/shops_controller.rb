@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   def index
     @all_products = Product.all
+    @cover_photo = CoverPhoto.find_by(publish: true)
     check_cart if current_client.present?
   end
 

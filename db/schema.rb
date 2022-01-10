@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_20_163832) do
+ActiveRecord::Schema.define(version: 2022_01_10_105648) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -61,6 +64,13 @@ ActiveRecord::Schema.define(version: 2021_12_20_163832) do
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
 
+  create_table "cover_photos", force: :cascade do |t|
+    t.string "photo"
+    t.boolean "publish", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "order_products", force: :cascade do |t|
     t.integer "product_id", null: false
     t.integer "order_id", null: false
@@ -97,6 +107,7 @@ ActiveRecord::Schema.define(version: 2021_12_20_163832) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "photo"
+    t.text "benefits"
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
   end
 

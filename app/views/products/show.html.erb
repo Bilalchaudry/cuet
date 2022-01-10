@@ -9,12 +9,13 @@
   <div class="single_product_desc clearfix">
     <h2><%= @product.name %></h2>
     <p class="product-desc"><%= @product.product_type.name %></p>
-    <p class="product-price">$<%= @product.price %></p>
+    <p class="product-price">PKR <%= @product.price %></p>
     <p class="product-desc"><%= @product.description %></p>
     <p>Size : <%= @product.size %></p>
+    <p style="margin: 0px;"><b>Benefits</b> : <%= sanitize @product.benefits %></p>
     <div class="select-box d-flex mt-10 mb-30">
       <%= form_with url: "/cart/add_to_cart/" + @product.id.to_s, method: :post do |form| %>
-        <%= form.label :quantity, "quantity" %>
+        <%= form.label :quantity, "Quantity" %>
         <%= form.number_field :quantity %>
         <div class="pt-4 cart-fav-box d-flex align-items-center">
           <%= form.submit "Add to cart", class: "btn essence-btn" %>
