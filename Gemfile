@@ -11,6 +11,11 @@ gem 'carrierwave', '~> 2.0'
 gem "money-rails"
 gem 'stripe-rails'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'carrierwave-aws'
+gem 'mini_magick'
+gem 'aws-sdk-rails'
+gem 'fog-aws'
+gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.1'
 #text editor active_Admin
