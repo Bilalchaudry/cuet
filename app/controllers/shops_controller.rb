@@ -2,6 +2,7 @@ class ShopsController < ApplicationController
   def index
     @all_products = Product.all
     @cover_photo = CoverPhoto.find_by(publish: true)
+    @slid_images = SlideImage.where(publish: true) rescue nil
     check_cart if current_client.present?
   end
 
