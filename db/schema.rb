@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_105648) do
+ActiveRecord::Schema.define(version: 2022_02_06_152612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 2022_01_10_105648) do
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -30,17 +30,17 @@ ActiveRecord::Schema.define(version: 2022_01_10_105648) do
   end
 
   create_table "cert_products", force: :cascade do |t|
-    t.integer "cert_id", null: false
+    t.bigint "cert_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "product_id", null: false
+    t.bigint "product_id", null: false
     t.integer "quantity", default: 1
     t.index ["cert_id"], name: "index_cert_products_on_cert_id"
     t.index ["product_id"], name: "index_cert_products_on_product_id"
   end
 
   create_table "certs", force: :cascade do |t|
-    t.integer "client_id", null: false
+    t.bigint "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "ordered?", default: false
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 2022_01_10_105648) do
   end
 
   create_table "order_products", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "order_id", null: false
+    t.bigint "product_id", null: false
+    t.bigint "order_id", null: false
     t.integer "quantity", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -83,10 +83,11 @@ ActiveRecord::Schema.define(version: 2022_01_10_105648) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "client_id", null: false
+    t.bigint "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "cert_id", null: false
+    t.bigint "cert_id", null: false
+    t.integer "order_total"
     t.index ["cert_id"], name: "index_orders_on_cert_id"
     t.index ["client_id"], name: "index_orders_on_client_id"
   end
@@ -103,12 +104,19 @@ ActiveRecord::Schema.define(version: 2022_01_10_105648) do
     t.text "description"
     t.string "size"
     t.float "price"
-    t.integer "product_type_id", null: false
+    t.bigint "product_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "photo"
     t.text "benefits"
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
+  end
+
+  create_table "slide_images", force: :cascade do |t|
+    t.string "image"
+    t.boolean "publish"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

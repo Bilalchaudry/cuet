@@ -8,7 +8,6 @@ class ClientMailer < ApplicationMailer
 
   def welcome
     @user = params[:user]
-    byebug
     mail(to: @user.email, subject: 'Welcome to cuetisol')
   end
 end

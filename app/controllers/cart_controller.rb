@@ -43,17 +43,6 @@ class CartController < ApplicationController
       @cert.cert_products.create!(product_id: params[:id], quantity: quantity)
     end
     render :js => "window.location = '#{root_url}'"
-    # respond_to do |format|
-    #   if user
-    #     session[:user_id] = user.id
-    #     flash[:notice] = "Welcome back #{user.name}!"
-    #     format.html {redirect_to (:controller => 'welcome')}
-    #   else
-    #     flash[:error] = "The username and/or password is invalid!"
-    #     format.html { render :action => :new }
-    #     format.js
-    #   end
-    # end
   end
 
   def delete

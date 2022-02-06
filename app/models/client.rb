@@ -10,4 +10,8 @@ class Client < ApplicationRecord
   def send_user_notification
     ClientMailer.with(user: self).welcome.deliver_later
   end
+
+  after_create do
+    self.update(name: self.first_name+ " " + self.last_name)
+  end
 end
