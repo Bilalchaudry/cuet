@@ -69,7 +69,9 @@ Rails.application.configure do
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
-    :enable_starttls_auto => true
+    :enable_starttls_auto => true,
+    open_timeout:         5,
+    read_timeout:         5
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
