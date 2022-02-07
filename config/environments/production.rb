@@ -67,7 +67,7 @@ Rails.application.configure do
     :password => ENV["SEND_GRID_KEY"],
     :domain => 'http://www.ceutisolpharma.com/',
     :address => 'smtp.sendgrid.net',
-    :port => 465,
+    :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
   }
