@@ -13,7 +13,9 @@
    <b class="pl-2 pr-4"> <%= order_product.product.name %></b> : <%= order_product.quantity %>
   <% end %>
   <br>
-  You can also view your order here : 
+  You can also view your order here :   <a class="green-btn long-text" href="/order/<%=@order.id %>">
+ <b>Order link</b>
+</a>
 </p>
 <p>Thanks for ordering!</p>
 </body>

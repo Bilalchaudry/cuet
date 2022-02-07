@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   delete 'cart/:id/cart_product/:p_id', to: 'cart#delete', as: 'delete_cart_product'
   get 'products/index'
   get '/products/show/:id', to: 'products#show', as: 'product_show'
+  get '/order/:id', to: 'orders#show', as: 'order_show'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'shops#index'

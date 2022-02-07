@@ -1,0 +1,53 @@
+<main class="page">
+  <a href="#" onclick="redirectBack()">Back To Shopping</a>
+  <section class="shopping-cart dark">
+    <div class="container">
+      <div class="block-heading">
+        <h2>Order Detail</h2>
+        <p>Hey <%= current_client.name %>, here are the details of your order.</p>
+        <div class="pt-2">Order Total: <b><span class="value"><%= @order.order_total %> PKR</span></b></div>
+        <div class="pt-2">Order Status: <b><span class="value"><%= @order.status %></span></b></div>
+      </div>
+      <h5>Ordered Products</h5>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12 col-lg-10">
+            <div class="items">
+              <div class="product">
+                <% @order_products.each do |order_product| %>
+                  <div class="row">
+                    <div class="col-md-4 pt-4">
+                      <%= image_tag order_product.product.photo_url, class: "img-fluid mx-auto d-block image" %>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="info">
+                        <div class="row">
+                          <div class="col-md-6 product-name">
+                            <div class="product-name">
+                              <h2><%= order_product.product.name %></h2>
+                              <div class="product-info">
+                                <div>Quantity: <span class="value"><%= order_product.quantity %></span></div>
+                                <div>Product Type: <span class="value"><%= order_product.product.product_type.name %></span></div>
+                                <div>Price: <span class="value"><%= order_product.product.price %></span></div>
+                              </div>
+                            </div>
+                          </div>
+<!--                          <div class="col-md-2 pt-4">-->
+<!--                            <span class="pb-2 btn btn-default" id="price_<%#= product.id %>">-->
+                              <%#= link_to "Remove", delete_cart_product_path(:id => 1,:p_id =>1),  method: :delete %>
+<!--                            </span>-->
+<!--                          </div>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
