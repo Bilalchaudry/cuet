@@ -1,5 +1,5 @@
 class ClientMailer < ApplicationMailer
-  default from: 'ceutisolpharma@gmail.com'
+  default from: 'info@ceutisolpharma.com'
 
   def order_email_to_client(order)
     @user = params[:user]
