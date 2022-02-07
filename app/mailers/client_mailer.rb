@@ -1,8 +1,9 @@
 class ClientMailer < ApplicationMailer
   default from: 'ceutisolpharma@gmail.com'
 
-  def order_email_to_client
+  def order_email_to_client(order)
     @user = params[:user]
+    @order = order
     mail(to: @user.email, subject: 'Order has been placed')
   end
 

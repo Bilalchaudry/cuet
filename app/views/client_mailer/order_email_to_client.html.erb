@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
 </head>
 <body>
-<h1>Hey, <%= @user%></h1>
+<h1>Hey, <%= @user.name %></h1>
 <p>
-  Your order has been placed successfully.<br>
+  Your order has been placed successfully.You have to pay <%= @order.order_total %> for your order.<br>
+  Your order details are here:
+  <% @order.order_products.each do |order_product| %>
+    <br class="pt-2 pb-2">
+   <b class="pl-2 pr-4"> <%= order_product.product.name %></b> : <%= order_product.quantity %>
+  <% end %>
+  <br>
+  You can also view your order here : 
 </p>
 <p>Thanks for ordering!</p>
 </body>

@@ -65,7 +65,7 @@
               <!--              <div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>-->
               <div class="summary-item"><span class="text">Shipping</span><span class="price">0</span></div>
               <div class="summary-item"><span class="text">Total</span><span id="total" class="price"><%=@total %></span></div>
-              <button id="check-btn" type="button" onclick="saveCart()" class="btn btn-hide btn-primary btn-lg btn-block">Checkout
+              <button id="check-btn" type="button" onclick="saveCart(<%= @cert.id %>)" class="btn btn-hide btn-primary btn-lg btn-block">Checkout
                 To proceed
               </button>
               <a type="button"  data-method="post" id="pay-btn" href="/orders/create/<%= @cert.id %>" class="btn btn-primary btn-lg btn-block">Proceed</a>
@@ -90,14 +90,13 @@
             arr.push(parseInt(x[i].innerHTML))
         }
         sum = arr.reduce((pv, cv) => pv + cv, 0);
-        debugger
         document.getElementById("subtotal").innerHTML = sum;
         document.getElementById("total").innerHTML = sum;
         $("#check-btn").removeClass('btn-hide')
         $("#pay-btn").addClass('btn-hide')
     }
 
-    function saveCart() {
+    function saveCart(c_id) {
         let products = []
         var x = document.getElementsByClassName('quantity-input')
         for (i = 0; i < x.length; i++) {
@@ -108,12 +107,14 @@
                 quantity: quant
             })
         }
+       debugger
         $.ajax({
             type: "POST",
             dataType: "json",
             url: "/cart/update",
             data:
-                {products}
+                {products,
+                c_id}
             ,
             success: function () {
                 $("#check-btn").addClass('btn-hide')

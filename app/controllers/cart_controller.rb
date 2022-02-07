@@ -22,11 +22,11 @@ class CartController < ApplicationController
   end
 
   def update
-    @cert = Cert.find(1)
+    @cert = Cert.find(params[:c_id])
     cart_products = @cert.cert_products
     keys = params[:products].keys
     keys.each do |key|
-      product = cart_products.find(params[:products][key]['id'])
+      product = cart_products.find_by(product_id: params[:products][key]['id'])
       product.update(quantity: params[:products][key]['quantity'])
     end
   end
@@ -52,8 +52,8 @@ class CartController < ApplicationController
 
   def check_cert_and_product
     @certs = current_client&.certs
-    @cert = @certs.find_by(ordered?: false)  if @certs
-    if @cert.present? && @certs.present?
+    @cert = @certs.find_by(ordered?: false) rescue nil
+    if @cert.present?
       quantity = params[:quantity].present? ? params[:quantity].to_i : 1
       @cert.cert_products.create(product_id: params[:product_id], quantity: quantity)
     else
