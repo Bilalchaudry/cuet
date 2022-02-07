@@ -62,9 +62,15 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   # config.action_controller.asset_host = ENV['ASSET_URL']
-  config.action_mailer.default_url_options = { host: 'http://www.ceutisolpharma.com/' }
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.default charset: 'utf-8'
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'apikey',
+    :password => ENV["SEND_GRID_KEY"],
+    :domain => 'http://www.ceutisolpharma.com/',
+    :address => 'smtp.sendgrid.net',
+    :port => 465,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
