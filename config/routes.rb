@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'cart/show_cart/:id', to: 'cart#show_cart', as: 'show_cart'
   get 'cart/index'
   post 'cart/update'
-  delete 'cart/:id/cart_product/:p_id', to: 'cart#delete', as: 'delete_cart_product'
+  delete 'cart/:id/cart_product', to: 'cart#delete', as: 'delete_cart_product'
   get 'products/index'
   get '/products/show/:id', to: 'products#show', as: 'product_show'
   get '/order/:id', to: 'orders#show', as: 'order_show'

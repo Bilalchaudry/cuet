@@ -46,6 +46,12 @@ class CartController < ApplicationController
   end
 
   def delete
+    @cert = Cert.find (params[:id])
+    @cert_products = @cert.cert_products
+    @cert_products.find_by(product_id: params[:p_id]).delete
+    product_ids = @cert_products.pluck(:product_id)
+    @products = Product.where(id: product_ids)
+    redirect_to show_cart_path
   end
 
   private

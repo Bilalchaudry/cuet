@@ -1,0 +1,40 @@
+<div class="product all-produtcs">
+  <% @total = 0 %>
+  <% products.each do |product| %>
+    <div class="row product-rows">
+      <div class="col-md-3 pt-4">
+        <%= image_tag product.photo_url, class: "img-fluid mx-auto d-block image" %>
+      </div>
+      <div class="col-md-8">
+        <div class="info">
+          <div class="row">
+            <div class="col-md-4 product-name">
+              <div class="product-name">
+                <h6><%= product.name %></h6>
+                <div class="product-info">
+                  <div>Size: <span class="value"><%= product.size %></span></div>
+                  <div>Type: <span class="value"><%= product.product_type.name %></span></div>
+                  <% @total = @total + (@cert_products.find_by(product_id: product.id).quantity * product.price) %>
+                  <div>Price: <span class="value"><%= product.price %></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 quantity">
+              <label for="quantity">Quantity:</label>
+              <input id="p_<%= product.id %>" onchange="setPrice(<%= product.id %>, <%= product.price %>)" type="number" value="<%= @cert_products.find_by(product_id: product.id).quantity %>" class="form-control quantity-input">
+            </div>
+            <div class="col-md-3 price">
+              <span class="product-prices" id="price_<%= product.id %>"><%= product.price * @cert_products.find_by(product_id: product.id).quantity %></span>
+            </div>
+            <div class="col-md-2 pt-4">
+                            <span class="pb-2 btn btn-default" id="price_<%= product.id %>">
+                              <%= link_to "Remove", delete_cart_product_path(:p_id => product.id),  :method => 'delete' %>
+                            </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
