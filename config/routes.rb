@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'products/index'
   get '/products/show/:id', to: 'products#show', as: 'product_show'
   get '/order/:id', to: 'orders#show', as: 'order_show'
+  get '/all_orders', to: 'orders#client_orders', as: 'all_orders'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'shops#index'

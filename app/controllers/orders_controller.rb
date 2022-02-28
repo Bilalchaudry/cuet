@@ -24,6 +24,8 @@ class OrdersController < ApplicationController
     redirect_to root_path
   end
 
-  def update
+  def client_orders
+    @all_orders = current_client.orders.includes(:order_products)
   end
+
 end
