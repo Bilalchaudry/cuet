@@ -25,7 +25,8 @@ class OrdersController < ApplicationController
   end
 
   def client_orders
-    @all_orders = current_client.orders.includes(:order_products) rescue nil
+    @all_orders = current_client.orders.includes(:order_products).order(id: :desc) rescue nil
+    @client = current_client
   end
 
 end

@@ -52,7 +52,7 @@
     <% @all_products.each do |product| %>
       <div class=" col-lg-4">
         <div class="product-img">
-          <%= image_tag product.photo_url %>
+          <%= image_tag product.photo_url  rescue nil%>
         </div>
         <div class="product-description">
           <h6> <%= link_to product_show_path(id: product.id) do %>
@@ -97,7 +97,7 @@
       <div class="col-12 col-md-6">
         <div class="single_widget_area mb-30">
           <ul class="footer_widget_menu">
-            <li class="<%= 'hide' if !current_user %>"><a href="/all_orders">Your Orders</a></li>
+            <li class="<%= 'hide' if !current_client %>"><a href="/all_orders">Your Orders</a></li>
             <li><a href="#">Shipping and Delivery</a></li>
             <li><a href="#">Guides</a></li>
             <li><a href="#">Privacy Policy</a></li>

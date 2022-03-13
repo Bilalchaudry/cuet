@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
 <html>
 <head>
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
@@ -10,13 +15,26 @@
   Your order details are here:
   <% @order.order_products.each do |order_product| %>
     <br class="pt-2 pb-2">
-   <b class="pl-2 pr-4"> <%= order_product.product.name %></b> : <%= order_product.quantity %>
+    <b class="pl-2 pr-4"> <%= order_product.product.name %></b> : <%= order_product.quantity %>
   <% end %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+    </tr>
+    <% @order.order_products.each do |order_product| %>
+      <tr>
+        <br class="pt-2 pb-2">
+        <td><b> <%= order_product.product.name %></b></td>
+        <td><%= order_product.quantity %></td>
+      </tr>
+    <% end %>
+  </table>
   <br>
-  You can also view your order here :   <a class="green-btn long-text" href="/order/<%=@order.id %>">
- <b>Order link</b>
+  You can also view your order here : <a class="green-btn long-text" href="/order/<%= @order.id %>">
+  <b>Order link</b>
 </a>
-</p>
-<p>Thanks for ordering!</p>
-</body>
+  </p>
+  <p>Thanks for ordering!</p>
+  </body>
 </html>

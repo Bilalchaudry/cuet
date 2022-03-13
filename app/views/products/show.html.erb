@@ -1,26 +1,36 @@
-<section class="single_product_details_area d-flex align-items-center">
+<section class="single_product_details_area d-flex">
 
   <div class="single_product_thumb clearfix">
     <div class="product_thumbnail_slides owl-carousel">
-      <%= image_tag @product.photo_url %>
+      <%= image_tag @product.photo_url rescue nil%>
     </div>
   </div>
 
-  <div class="single_product_desc clearfix">
+  <div class="single_product_desc clearfix" style="height: 700px; overflow: scroll; padding-top: 0px;">
     <h2><%= @product.name %></h2>
     <p class="product-desc"><%= @product.product_type.name %></p>
     <p class="product-price">PKR <%= @product.price %></p>
     <p class="product-desc"><%= @product.description %></p>
     <p>Size : <%= @product.size %></p>
-    <p style="margin: 0px;"><b>Benefits</b> : <%= sanitize @product.benefits %></p>
+    <p style="margin: 0px;"><b>Benefits</b> <%= sanitize @product.benefits %></p>
+    <p> Ingredeints: <%=  sanitize @product.ingredients %></p>
     <div class="select-box d-flex mt-10 mb-30">
-      <%= form_with url: "/cart/add_to_cart/" + @product.id.to_s, method: :post do |form| %>
+      <%= form_with url: "/cart/add_to_cart/" + @product.id.to_s,model: @cert_product,method: :post do |form| %>
         <%= form.label :quantity, "Quantity" %>
         <%= form.number_field :quantity %>
         <div class="pt-4 cart-fav-box d-flex align-items-center">
-          <%= form.submit "Add to cart", class: "btn essence-btn" %>
+          <% if current_client.present? %>
+            <%= form.submit "Add to cart", class: "btn btn-primary" ,style: "border-radius: 0px; line-height: unset;" %> <a class="pl-4 btn btn-primary" style="color: white;"  href="#" onclick="redirectBack()">Back To Shopping</a>
+          <% else %>
+            <%= link_to "Add to cart", new_client_session_path, class: "btn btn-primary" ,style: "border-radius: 0px; line-height: unset;"%> <a class="pl-4 btn btn-primary" style="color: white;" href="#" onclick="redirectBack()">Back To Shopping</a>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 </section>
+<script>
+    function redirectBack() {
+        window.location = "/";
+    }
+</script>

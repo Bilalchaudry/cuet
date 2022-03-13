@@ -4,7 +4,7 @@ class CartController < ApplicationController
 
   def show
     @cert_count = @cert ? @cert.cert_products.count : ''
-    @cart_data = {count: @cert_count, cert_id: @cert.id}
+    @cart_data = { count: @cert_count, cert_id: @cert.id }
     render json: @cart_data
   end
 
@@ -33,10 +33,15 @@ class CartController < ApplicationController
 
   def add_to_cart
     @certs = current_client&.certs
-    @cert = @certs.find_by(ordered?: false)  if @certs
+    @cert = @certs.find_by(ordered?: false) if @certs
     if @cert.present? && @certs.present?
-      quantity = params[:quantity].present? ? params[:quantity].to_i : 1
-      @cert.cert_products.create!(product_id: params[:id], quantity: quantity)
+      quantity = params[:cert_product][:quantity].present? ? params[:cert_product][:quantity].to_i : 1
+      cert_product = @cert.cert_products.find_by(product_id: params[:id])
+      if cert_product.present?
+        cert_product.update(quantity: quantity)
+      else
+        @cert.cert_products.create!(product_id: params[:id], quantity: quantity)
+      end
     else
       @cert = Cert.create(client_id: current_client.id)
       quantity = params[:quantity].present? ? params[:quantity].to_i : 1

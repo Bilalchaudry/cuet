@@ -1,29 +1,46 @@
 <div class="container">
+  <a href="#" onclick="redirectBack()">Back To Shopping</a>
   <h3>All orders</h3>
+  Total Orders: <b><%= @all_orders.count %></b><br>
+  Client Name : <b><%= @client.name %></b><br>
   <% @all_orders.each do |order| %>
-    <div class="card mt-4 mb-4">
-      Order Details
+    <div class="card mt-4 mb-4" style="background-color: whitesmoke;">
+      <h6 class="pl-2">Order Details</h6>
       <div class="card-body">
         <% order.order_products.each do |order_product| %>
           <div class="row pl-2 pr-2">
-            <p>Product Name: <b class="pl-2 pr-2"><%= order_product.product.name %></b></p>
+            <p class="w-50">Product Name: </p>
+            <p><b class="pl-2 pr-2"><%= order_product.product.name %></b></p>
           </div>
+          <hr class="hr-tag">
           <div class="row pl-2 pr-2">
-            <p>Product Quantity: <b class="pl-2 pr-2"><%= order_product.quantity %></b></p>
+            <p class="w-50">Product Quantity: </p>
+            <p><b class="pl-2 pr-2"><%= order_product.quantity %></b></p>
           </div>
+          <hr class="hr-tag">
           <div class="row pl-2 pr-2">
-            <p>Product Total Price: <b class="pl-2 pr-2"><%= order_product.product_total_price %></b></p>
+            <p class="w-50">Product Total Price: </p>
+            <p><b class="pl-2 pr-2"><%= order_product.product_total_price %></b></p>
           </div>
+          <hr class="hr-tag">
         <% end %>
         <div class="row pl-2 pr-2">
-          <p>Order Status: <b class="pl-2 pr-2"><%= order.status %></b></p>
+          <p class="w-50">Order Status: </p>
+          <p><b class="pl-2 pr-2"><%= order.status %></b></p>
         </div>
+        <hr class="hr-tag">
         <div class="row pl-2 pr-2">
-          <p>Order Total: <b class="pl-2 pr-2"><%= order.order_total %></b></p>
+          <p class="w-50">Order Total: </p>
+          <p><b class="pl-2 pr-2"><%= order.order_total %></b></p>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+<script>
+    function redirectBack() {
+        window.location = "/";
+    }
+</script>
 
 

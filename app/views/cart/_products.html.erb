@@ -3,7 +3,7 @@
   <% products.each do |product| %>
     <div class="row product-rows">
       <div class="col-md-3 pt-4">
-        <%= image_tag product.photo_url, class: "img-fluid mx-auto d-block image" %>
+        <%#= image_tag product.photo_url, class: "img-fluid mx-auto d-block image" %>
       </div>
       <div class="col-md-8">
         <div class="info">
@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-2 pt-4">
                             <span class="pb-2 btn btn-default" id="price_<%= product.id %>">
-                              <%= link_to "Remove", delete_cart_product_path(:p_id => product.id),  :method => 'delete' %>
+                              <%= link_to "Remove", delete_cart_product_path(:p_id => product.id), :method => 'delete' %>
                             </span>
             </div>
           </div>
