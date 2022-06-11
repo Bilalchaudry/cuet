@@ -7,26 +7,26 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-// window.jQuery = $;
-// window.$ = $;
-var $ = require( "jquery" )
+window.jQuery = $;
+window.$ = $;
+// var $ = require( "jquery" )
 require("slick-carousel")
 
 import "slick-carousel/slick/slick.scss"
 import "slick-carousel/slick/slick-theme.scss"
 // import "..assets/stylesheets/application.css"
 
-document.addEventListener("turbolinks:load", function() {
-    $('#autoplay').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        arrows: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
-    });
-})
+// document.addEventListener("turbolinks:load", function() {
+//     $('#autoplay').slick({
+//         dots: true,
+//         infinite: true,
+//         speed: 300,
+//         slidesToShow: 1,
+//         arrows: true,
+//         autoplay: true,
+//         autoplaySpeed: 2000,
+//     });
+// })
 // document.addEventListener("turbolinks:load", function() {
 //     $('#autoplay').slick({
 //         dots: true,

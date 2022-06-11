@@ -135,18 +135,18 @@
 </footer>
 <script>
     var products = [];
-    // $(function() {
-    //     debugger
-    //     $('#autoplay').slick({
-    //         dots: true,
-    //         infinite: true,
-    //         speed: 300,
-    //         slidesToShow: 1,
-    //         arrows: true,
-    //         autoplay: true,
-    //         autoplaySpeed: 2000,
-    //     });
-    // })
+    $(function() {
+        debugger
+        $('#autoplay').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            arrows: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+    })
     function saveData(product_id) {
         var style = "pointer-events:none; cursor:default;";
         document.getElementById(product_id).setAttribute("style", style);
