@@ -14,7 +14,7 @@ require("slick-carousel")
 
 import "slick-carousel/slick/slick.scss"
 import "slick-carousel/slick/slick-theme.scss"
-// import "..assets/stylesheets/application.css"
+import "../styles/application.scss"
 
 // document.addEventListener("turbolinks:load", function() {
 //     $('#autoplay').slick({
