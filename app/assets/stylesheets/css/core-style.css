@@ -632,6 +632,7 @@ img {
 
 /* :: 5.0 Welcome Area CSS */
 .welcome_area {
+  background-size: auto;
   position: relative;
   z-index: 1;
   width: 100%;

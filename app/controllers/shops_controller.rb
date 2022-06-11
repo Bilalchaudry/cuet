@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    @all_products = Product.all
+    @all_products = Product.all.order(price: :desc)
     @cover_photo = CoverPhoto.find_by(publish: true)
     @slid_images = SlideImage.where(publish: true) rescue nil
     check_cart if current_client.present?
