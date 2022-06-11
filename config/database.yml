@@ -28,7 +28,7 @@ development:
   encoding: unicode
   database: ceutisol
   pool: 5
-  username: bilal
+  username: 'invozone-guest'
   password: ''
 
 test:
@@ -36,7 +36,7 @@ test:
   encoding: unicode
   database: ceutisol
   pool: 5
-  username: bilal
+  username: 'invozone-guest'
   password: ''
 
 production:
@@ -44,5 +44,5 @@ production:
   encoding: unicode
   database: ceutisol
   pool: 5
-  username: bilal
+  username: 'invozone-guest'
   password: ''
