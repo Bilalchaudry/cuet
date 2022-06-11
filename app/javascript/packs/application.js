@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("slick-carousel")
+import "slick-carousel";
 import "slick-carousel/slick/slick.scss"
 import "slick-carousel/slick/slick-theme.scss"
 window.jQuery = $;
