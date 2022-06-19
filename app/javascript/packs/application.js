@@ -14,19 +14,21 @@ require("slick-carousel")
 
 import "slick-carousel/slick/slick.scss"
 import "slick-carousel/slick/slick-theme.scss"
-import "../styles/application.scss"
+import '../stylesheets/application.scss';
+import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap';
 
-// document.addEventListener("turbolinks:load", function() {
-//     $('#autoplay').slick({
-//         dots: true,
-//         infinite: true,
-//         speed: 300,
-//         slidesToShow: 1,
-//         arrows: true,
-//         autoplay: true,
-//         autoplaySpeed: 2000,
-//     });
-// })
+document.addEventListener("turbolinks:load", function() {
+    $('#autoplay').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+})
 // document.addEventListener("turbolinks:load", function() {
 //     $('#autoplay').slick({
 //         dots: true,

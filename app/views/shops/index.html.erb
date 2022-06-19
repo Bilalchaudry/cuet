@@ -21,7 +21,6 @@
 
   </div>
 </header>
-
 <section class="welcome_area bg-img background-overlay" style="background-image: url(<%= @cover_photo&.photo&.url %>);">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
@@ -32,17 +31,18 @@
     </div>
   </div>
 </section>
-<!--<div id="autoplay">-->
-  <%# @slid_images.each do |image| %>
-    <%#= image_tag image.image_url %>
-  <%# end %>
-<!--</div>-->
+<div id="autoplay">
+  <% @slid_images.each do |image| %>
+    <%= image_tag image.image_url %>
+  <% end %>
+</div>
 <section class="new_arrivals_area section-padding-80 clearfix">
   <div class="container">
     <div class="row">
       <div class="col-12">
         <div class="section-heading text-center">
-          <h2>Popular Products</h2>
+<!--          <h2>Popular Products</h2>-->
+          <h2 class="abcd">Popular Products</h2>
         </div>
       </div>
     </div>
@@ -136,7 +136,6 @@
 <script>
     var products = [];
     $(function() {
-        debugger
         $('#autoplay').slick({
             dots: true,
             infinite: true,
