@@ -5,6 +5,7 @@ ActiveAdmin.register Order do
       row('Cleint Email') { order.client.email }
       row('Order Total PKR') { order.order_total }
       row('Status') { order.status }
+      row('Address') { order.client.address }
       row :created_at
     end
     panel 'Ordered Products' do
