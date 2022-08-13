@@ -1,6 +1,13 @@
 ul li, ol li {
   list-style: auto !important;
 }
+.signup-btn:hover {
+  color: white !important;
+}
+.signup-inputs {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .hide {
   display: none;
 }

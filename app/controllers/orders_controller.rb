@@ -24,6 +24,21 @@ class OrdersController < ApplicationController
     redirect_to root_path
   end
 
+  def get_pdf
+    @order = Order.find(params[:order_id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Order_#{@order.id}", # filename
+               template: "orders/order_pdf",
+               formats: [:html],
+               disposition: :inline,
+               layout: 'pdf'
+      end
+    end
+
+  end
+
   def client_orders
     @all_orders = current_client.orders.includes(:order_products).order(id: :desc) rescue nil
     @client = current_client

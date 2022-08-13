@@ -17,7 +17,6 @@
     }
 </style>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="container-fluid">
     <div class="row">
       <div class="well center-block">
@@ -25,7 +24,7 @@
           <h3 class="text-center text-success"> Register Here! </h3>
           <hr>
         </div>
-
+        <%= render "devise/shared/error_messages", resource: resource %>
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
@@ -39,8 +38,8 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row signup-inputs">
+          <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-addon">
@@ -52,7 +51,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row signup-inputs">
           <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
               <div class="input-group">
@@ -65,7 +64,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row signup-inputs">
           <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
               <div class="input-group">
@@ -78,7 +77,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row signup-inputs">
           <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
               <div class="input-group">
@@ -91,7 +90,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row signup-inputs">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
               <div class="input-group">
@@ -107,7 +106,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row signup-inputs">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
               <div class="input-group">
@@ -122,7 +121,7 @@
 
         <div class="row widget">
           <div class="col-md-12 col-xs-12 col-sm-12">
-            <%= f.submit "Sign up", class: "btn btn-warning btn-block" %>
+            <%= f.submit "Sign Up", class: "btn w-100 signup-btn", style: "background: black;" %>
           </div>
         </div>
         <%= render "devise/shared/links" %>

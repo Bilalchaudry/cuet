@@ -7,6 +7,9 @@ ActiveAdmin.register Order do
       row('Order Total PKR') { order.order_total }
       row('Status') { order.status }
       row('Address') { order.client.address }
+      row "PDF" do
+          link_to("pdf", order_pdf_path(format: :pdf, order_id: order.id))
+      end
       row :created_at
     end
     panel 'Ordered Products' do
