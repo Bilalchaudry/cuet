@@ -62,6 +62,14 @@ ul li, ol li {
   text-shadow: none;
   box-shadow: none;
 }
+.slick-slide {
+  margin: 0 27px !important;
+}
+
+/* the parent */
+.slick-list {
+  margin: 0 -27px !important;
+}
 
 .slick-dots li button:not(.disabled):active {
   box-shadow: none;
