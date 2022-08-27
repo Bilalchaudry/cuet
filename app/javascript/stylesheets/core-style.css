@@ -640,8 +640,25 @@ img {
   z-index: 1;
   width: 100%;
   height: 466px;
-  margin-top: 86px;
+  margin-top: 39px;
 }
+@media screen and  (min-width: 1600px){
+  .welcome_area {
+    height: 600px !important;
+    position: unset !important;
+    background-position: unset !important;
+    background-size: contain !important;
+  }
+  .bg-img {
+    background-position: unset !important;
+  }
+}
+@media screen and  (min-width: 1024px){
+  .welcome_area {
+    margin-top: 39px !important;
+  }
+}
+
 @media screen and  (min-width: 1280px){
   .welcome_area {
     background-size: cover !important;
