@@ -630,11 +630,18 @@ img {
 
 /* :: 5.0 Welcome Area CSS */
 .welcome_area {
-  background-size: auto;
+  /*background-size: auto;*/
+  /*position: relative;*/
+  /*z-index: 1;*/
+  /*width: 100%;*/
+  /*height: 600px;*/
+  background-size: cover;
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 600px; }
+  height: 466px;
+  margin-top: 86px;
+}
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .welcome_area {
       height: 450px; } }
