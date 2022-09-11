@@ -160,7 +160,6 @@ img {
 
 /* Miscellaneous */
 .bg-img {
-  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat; }
 
@@ -240,14 +239,8 @@ img {
 
 /* :: 4.0 Header Area CSS */
 .header_area {
-  position: fixed;
-  z-index: 900;
-  top: 0;
-  left: 0;
-  width: 100%;
   border-bottom: 1px solid #ebebeb;
-  -webkit-transition-duration: 500ms;
-  transition-duration: 500ms; }
+   }
   @media only screen and (max-width: 767px) {
     .header_area .classy-nav-container {
       -ms-flex-wrap: wrap;
@@ -630,21 +623,15 @@ img {
 
 /* :: 5.0 Welcome Area CSS */
 .welcome_area {
-  /*background-size: auto;*/
-  /*position: relative;*/
-  /*z-index: 1;*/
-  /*width: 100%;*/
-  /*height: 600px;*/
   background-size: contain;
   position: relative;
   z-index: 1;
   width: 100%;
   height: 466px;
-  margin-top: 39px;
 }
 @media screen and  (min-width: 1600px){
   .welcome_area {
-    height: 600px !important;
+    height: 900px !important;
     position: unset !important;
     background-position: unset !important;
     background-size: contain !important;
@@ -653,15 +640,13 @@ img {
     background-position: unset !important;
   }
 }
-@media screen and  (min-width: 1024px){
-  .welcome_area {
-    margin-top: 39px !important;
-  }
-}
-
-@media screen and  (min-width: 1280px){
+@media screen and  (min-width: 1280px) and (max-width: 1599px){
   .welcome_area {
     background-size: cover !important;
+  }
+}
+@media screen and  (min-width: 1280px){
+  .welcome_area {
     position: unset !important;
   }
   .bg-img {
@@ -670,7 +655,7 @@ img {
 }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .welcome_area {
-      height: 450px; } }
+      height: 360px; } }
   @media only screen and (max-width: 767px) {
     .welcome_area {
       height: 350px; } }

@@ -16,7 +16,6 @@ import "slick-carousel/slick/slick.scss"
 import "slick-carousel/slick/slick-theme.scss"
 import '../stylesheets/application.scss';
 import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap';
 
 document.addEventListener("turbolinks:load", function() {
     $('#autoplay').slick({
