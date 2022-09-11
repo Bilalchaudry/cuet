@@ -20,9 +20,9 @@
         <%= form.number_field :quantity %>
         <div class="pt-4 cart-fav-box d-flex align-items-center">
           <% if current_client.present? %>
-            <%= form.submit "Add to cart", class: "btn btn-primary" ,style: "border-radius: 0px; line-height: unset;" %> <a class="pl-4 btn btn-primary" style="color: white;"  href="#" onclick="redirectBack()">Back To Shopping</a>
+            <%= form.submit "Add to cart", class: "btn btn-primary" ,style: "border-radius: 0px; line-height: unset;" %> <a class="pl-4 btn btn-primary" style="color: white; border-radius: 0px;"  href="#" onclick="redirectBack()">Back To Shopping</a>
           <% else %>
-            <%= link_to "Add to cart", new_client_session_path, class: "btn btn-primary" ,style: "border-radius: 0px; line-height: unset;"%> <a class="pl-4 btn btn-primary" style="color: white;" href="#" onclick="redirectBack()">Back To Shopping</a>
+            <%= link_to "Add to cart", new_client_session_path, class: "btn btn-primary" ,style: "border-radius: 0px; line-height: unset; color: white;"%> <a class="pl-4 ml-15 btn btn-primary" style="color: white; border-radius: 0px;" href="#" onclick="redirectBack()">Back To Shopping</a>
           <% end %>
         </div>
       <% end %>
