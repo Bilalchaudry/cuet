@@ -1,25 +1,59 @@
 <header class="header_area">
-  <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
-    <nav class="classy-navbar" id="essenceNav">
-      <a style="width: 100px; height: 80px;" class="nav-brand" href="index.html"><img style="height: 77px;" src="assets/core-img/logo.png" alt=""></a>
-    </nav>
-
-    <div class="header-meta d-flex clearfix justify-content-end">
-      <div id="show-cert">
-        <%= render 'shops/cart' %>
-      </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light set-nav-pad ">
+    <div class="container-fluid">
+      <a class="navbar-brand remove-underline nav-btn-font-wt" style="font-size: 35px;" href="/">
+        <img src="assets/core-img/logo.png" alt="" width="50" height="70" class="d-inline-block align-text-center">
+        Ceutisol
+      </a>
+      <div class="vertical" style="border-left: 2px solid lightgrey; height: 70px;"></div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-2">
+          <li class="nav-item nav-btn-pdg active">
+            <a class="nav-link active remove-underline nav-btn-font-wt nav-btn-font-sz active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item nav-btn-pdg">
+            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Products</a>
+          </li>
+          <li class="nav-item nav-btn-pdg">
+            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Shop</a>
+          </li>
+          <li class="nav-item nav-btn-pdg">
+            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Sale</a>
+          </li>
+          <li class="nav-item nav-btn-pdg">
+            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item nav-btn-pdg">
+            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Blog</a>
+          </li>
+<!--          <li class="nav-item nav-btn-pdg">-->
+<!--            <form class="d-flex">-->
+<!--              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--              <i class="fas fa-search"></i>-->
+<!--              <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--            </form>-->
+<!--          </li>-->
+        </ul>
+        <span id="show-cert">
+          <%= render 'shops/cart' %>
+        </span>
+        <span>
       <% if current_client %>
-        <div class="favourite-area">
-          <a data-method="delete" href="/clients/sign_out"><img src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/50/000000/external-logout-screen-from-the-working-portfolio-of-a-user-classic-bold-tal-revivo.png"/></a>
+        <div class=" nav-btn-pdg">
+          <a data-method="delete" class="nav-btn-font-sz" href="/clients/sign_out"><img src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/30/000000/external-logout-screen-from-the-working-portfolio-of-a-user-classic-bold-tal-revivo.png"/></a>
         </div>
       <% else %>
-        <div class="favourite-area">
-          <a href="/clients/sign_in"><img src="https://img.icons8.com/material-rounded/24/000000/user.png"/></a>
+        <div class="nav-btn-pdg">
+          <a href="/clients/sign_in" class="nav-btn-font-sz"><img src="https://img.icons8.com/material-rounded/30/000000/user.png"/></a>
         </div>
       <% end %>
+      </span>
+      </div>
     </div>
-
-  </div>
+  </nav>
 </header>
 <section class="welcome_area bg-img background-overlay" style="background-image: url(<%= @cover_photo&.photo&.url %>);">
   <div class="container h-100">
@@ -41,7 +75,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-heading text-center">
-<!--          <h2>Popular Products</h2>-->
+          <!--          <h2>Popular Products</h2>-->
           <h2 class="abcd">Popular Products</h2>
         </div>
       </div>
@@ -52,7 +86,7 @@
     <% @all_products.each do |product| %>
       <div class=" col-lg-4">
         <div class="product-img">
-          <%= image_tag product.photo_url  rescue nil%>
+          <%= image_tag product.photo_url rescue nil %>
         </div>
         <div class="product-description">
           <h6> <%= link_to product_show_path(id: product.id) do %>
@@ -135,17 +169,17 @@
 </footer>
 <script>
     var products = [];
-    $(function() {
+    $(function () {
         $('#autoplay').slick({
             dots: true,
             infinite: true,
             speed: 300,
             slidesToShow: 1,
-            arrows: true,
             autoplay: true,
             autoplaySpeed: 2000,
         });
     })
+
     function saveData(product_id) {
         var style = "pointer-events:none; cursor:default;";
         document.getElementById(product_id).setAttribute("style", style);
@@ -159,7 +193,7 @@
             success: function (data) {
                 document.getElementById("cert-value").innerHTML = data.count
                 var link = document.getElementById("essenceCartBtn")
-                link.href = "/cart/show_cart/"+data.cert_id
+                link.href = "/cart/show_cart/" + data.cert_id
                 $("#cart_partial").removeClass("hide");
             },
         })
