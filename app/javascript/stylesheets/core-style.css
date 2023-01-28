@@ -224,19 +224,19 @@ img {
   display: inline-block;
   min-width: 170px;
   height: 50px;
-  color: #ffffff;
+  color: #ffffff !important;
   border: none;
   border-radius: 0;
   padding: 0 40px;
   text-transform: uppercase;
   font-size: 12px;
   line-height: 50px;
-  background-color: #0315ff;
+  background-color: black;
   letter-spacing: 1.5px;
   font-weight: 600; }
-  .essence-btn:hover, .essence-btn:focus {
-    color: #ffffff;
-    background-color: #dc0345; }
+  /*.essence-btn:hover, .essence-btn:focus {*/
+  /*  color: #ffffff;*/
+  /*  background-color: #dc0345; }*/
 
 /* :: 4.0 Header Area CSS */
 .header_area {
