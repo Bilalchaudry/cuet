@@ -1,5 +1,27 @@
-ul li, ol li {
-  list-style: auto !important;
+.navbar-light .navbar-nav .nav-link.active {
+  text-decoration: underline !important;
+}
+.set-nav-pad {
+  padding-bottom: unset !important;
+  padding-top: unset !important;
+}
+a.underline-hover:hover {
+  text-decoration: underline !important;
+}
+
+.remove-underline {
+  text-decoration: none !important;
+}
+.nav-btn-font-wt {
+  font-weight: unset !important;
+}
+.nav-btn-font-sz {
+  color: black !important;
+  font-size: 17px !important;
+}
+.nav-btn-pdg {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .hide {
   display: none;
