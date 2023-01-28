@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 window.jQuery = $;
@@ -17,18 +17,18 @@ import "slick-carousel/slick/slick-theme.scss"
 import '../stylesheets/application.scss';
 import 'bootstrap';
 // import 'bootstrap/dist/css/bootstrap';
-
-document.addEventListener("turbolinks:load", function() {
-    $('#autoplay').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        arrows: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
-    });
-})
+//
+// document.addEventListener("turbolinks:load", function() {
+//     $('#autoplay').slick({
+//         dots: true,
+//         infinite: true,
+//         speed: 300,
+//         slidesToShow: 1,
+//         arrows: true,
+//         autoplay: true,
+//         autoplaySpeed: 2000,
+//     });
+// })
 // document.addEventListener("turbolinks:load", function() {
 //     $('#autoplay').slick({
 //         dots: true,
