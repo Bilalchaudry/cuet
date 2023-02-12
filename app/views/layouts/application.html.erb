@@ -9,6 +9,8 @@
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag "application", media: "all" %>
     <!-- Google tag (gtag.js) -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVJETMHGTF"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -17,9 +19,11 @@
 
         gtag('config', 'G-GVJETMHGTF');
     </script>
+    <%= render partial: 'layouts/header'  %>
   </head>
 
   <body style="margin-top: 20px;">
     <%= yield %>
+    <%= render 'layouts/footer'  %>
   </body>
 </html>

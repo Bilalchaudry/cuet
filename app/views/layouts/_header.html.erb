@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light set-nav-pad ">
     <div class="container-fluid">
       <a class="navbar-brand remove-underline nav-btn-font-wt" style="font-size: 35px;" href="/">
-        <img src="assets/core-img/logo.png" alt="" width="50" height="70" class="d-inline-block align-text-center">
+        <%= image_tag ("core-img/logo.png"), class: "d-inline-block align-text-center", width: "50", height: "70"%>
         Ceutisol
       </a>
       <div class="vertical" style="border-left: 2px solid lightgrey; height: 70px;"></div>
@@ -28,7 +28,7 @@
               Us</a>
           </li>
           <li class="nav-item nav-btn-pdg">
-            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Blog</a>
+            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="/blogs/index">Blog</a>
           </li>
         </ul>
         <span id="show-cert">

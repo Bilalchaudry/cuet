@@ -1,0 +1,29 @@
+<div class="container blog pt-5 mt-5">
+  <div class="row">
+    <div class="col col-xs-12">
+      <div class="blog-grids">
+        <h3>Ceuticol Blog Stories</h3>
+        <% if @blogs.present? %>
+          <% @blogs.each do |blog| %>
+            <div class="grid">
+              <div class="entry-media">
+                <img src="<%= blog.photo_url %>" alt="">
+              </div>
+              <p class="date">Published <%= distance_of_time_in_words(Time.now, blog.created_at) %> ago </p>
+              <div class="entry-body">
+                <span class="cat"><%= blog.tag %></span>
+                <h3><a href="/" target="_blank"><%= blog.title %></a></h3>
+                <p><%= raw(blog.blog_content.truncate(40)) %></p>
+                <div class="read-more-date">
+                  <a href="/blogs/show/<%= blog.id %>" target="_blank">Read More..</a>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+        <p>Blogs aren not published yet.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

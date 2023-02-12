@@ -1,4 +1,3 @@
-<%= render partial: 'layouts/header'  %>
 <section class="welcome_area bg-img background-overlay" style="background-image: url(<%= @cover_photo&.photo&.url %>);">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
@@ -56,60 +55,60 @@
   </div>
 </section>
 
-<footer class="footer_area clearfix">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <div class="single_widget_area d-flex mb-30">
-          <div class="footer_widget_menu">
-            <ul>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- Single Widget Area -->
-      <div class="col-12 col-md-6">
-        <div class="single_widget_area mb-30">
-          <ul class="footer_widget_menu">
-            <li class="<%= 'hide' if !current_client %>"><a href="/all_orders">Your Orders</a></li>
-            <li><a href="#">Shipping and Delivery</a></li>
-            <li><a href="#">Guides</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Use</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<!--<footer class="footer_area clearfix">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col-12 col-md-6">-->
+<!--        <div class="single_widget_area d-flex mb-30">-->
+<!--          <div class="footer_widget_menu">-->
+<!--            <ul>-->
+<!--              <li><a href="#">Shop</a></li>-->
+<!--              <li><a href="/blogs/index">Blogs</a></li>-->
+<!--              <li><a href="#">Contact</a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    <div class="row align-items-end">
-      <!-- Single Widget Area -->
-      <div class="col-12 col-md-6">
-        <div class="single_widget_area">
-          <div class="footer_social_area">
-            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-            <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
+<!--      <div class="col-12 col-md-6">-->
+<!--        <div class="single_widget_area mb-30">-->
+<!--          <ul class="footer_widget_menu">-->
+<!--            <li class="<%#= 'hide' if !current_client %>"><a href="/all_orders">Your Orders</a></li>-->
+<!--            <li><a href="#">Shipping and Delivery</a></li>-->
+<!--            <li><a href="#">Guides</a></li>-->
+<!--            <li><a href="#">Privacy Policy</a></li>-->
+<!--            <li><a href="#">Terms of Use</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
-    <div class="row mt-5">
-      <div class="col-md-12 text-center">
-        <p>
-          Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-          All rights reserved.
-        </p>
-      </div>
-    </div>
+<!--    <div class="row align-items-end">-->
 
-  </div>
-</footer>
+<!--      <div class="col-12 col-md-6">-->
+<!--        <div class="single_widget_area">-->
+<!--          <div class="footer_social_area">-->
+<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>-->
+<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>-->
+<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="row mt-5">-->
+<!--      <div class="col-md-12 text-center">-->
+<!--        <p>-->
+<!--          Copyright &copy;<script>document.write(new Date().getFullYear());</script>-->
+<!--          All rights reserved.-->
+<!--        </p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</footer>-->
 <script>
     var products = [];
     $(function() {

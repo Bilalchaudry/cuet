@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'blogs/index'
+  get 'blogs/show/:id', to: 'blogs#show'
   post 'orders/create/:id', to: 'orders#create'
   get 'orders/update'
   get 'orders/place_order'
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   get '/products/show/:id', to: 'products#show', as: 'product_show'
   get '/order/:id', to: 'orders#show', as: 'order_show'
   get '/all_orders', to: 'orders#client_orders', as: 'all_orders'
+  # get '/shoping', to: 'shops#index'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'shops#index'
