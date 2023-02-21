@@ -4,31 +4,57 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 window.jQuery = $;
 window.$ = $;
-// var $ = require( "jquery" )
 require("slick-carousel")
 
 import "slick-carousel/slick/slick.scss"
 import "slick-carousel/slick/slick-theme.scss"
 import '../stylesheets/application.scss';
 import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap';
-//
-// document.addEventListener("turbolinks:load", function() {
-//     $('#autoplay').slick({
-//         dots: true,
-//         infinite: true,
-//         speed: 300,
-//         slidesToShow: 1,
-//         arrows: true,
-//         autoplay: true,
-//         autoplaySpeed: 2000,
-//     });
-// })
+
+$( document ).ready(function() {
+    $('#autoplay').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        mobileFirst:true,
+        slidesToShow: 2,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+})
 // document.addEventListener("turbolinks:load", function() {
 //     $('#autoplay').slick({
 //         dots: true,

@@ -23,6 +23,13 @@ a.underline-hover:hover {
   padding-left: 16px;
   padding-right: 16px;
 }
+.signup-btn:hover {
+  color: white !important;
+}
+.signup-inputs {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .hide {
   display: none;
 }
@@ -76,6 +83,14 @@ a.underline-hover:hover {
 .slick-dots li button {
   text-shadow: none;
   box-shadow: none;
+}
+.slick-slide {
+  margin: 0 27px !important;
+}
+
+/* the parent */
+.slick-list {
+  margin: 0 -27px !important;
 }
 
 .slick-dots li button:not(.disabled):active {

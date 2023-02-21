@@ -1,0 +1,18 @@
+<div class="row">
+  Order Number:  <%= @order.id %><br>
+  Created: <%= @order.created_at.strftime('%m/%d/%Y') %><br>
+  Total: <b><%= @order.order_total %>/= PKR </b>
+</div>
+<br>
+<div class="row">
+  <b>Receipt</b>  <%= @order.client.name %><br>
+  Address:   <%= @order.client.address %><br>
+  Phone:  <%= @order.client.phone %>
+</div>
+<br>
+<div class="row">
+  <b>Sender</b>  Ceuti Sol Pharma <br>
+  Address: 56-C, Islam Block, Azam Garden Lahore <br>
+  Phone: 03338764656<br>
+  email:  info@ceutisolpharma.com<br>
+</div>

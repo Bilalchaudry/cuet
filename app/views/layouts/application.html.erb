@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ceutisol</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", media: "all" %>
-    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application' %>
-    <%= stylesheet_pack_tag "application", media: "all" %>
-    <!-- Google tag (gtag.js) -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<head>
+  <title>Ceutisol</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application' %>
+  <%= stylesheet_pack_tag "application", media: "all" %>
+  <!-- Google tag (gtag.js) -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVJETMHGTF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVJETMHGTF"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
 
-        gtag('config', 'G-GVJETMHGTF');
-    </script>
-    <%= render partial: 'layouts/header'  %>
-  </head>
+      function gtag() {
+          dataLayer.push(arguments);
+      }
 
-  <body class="d-flex flex-column min-vh-100" style="margin-top: 20px;">
-    <%= yield %>
-    <%= render 'layouts/footer'  %>
-  </body>
+      gtag('js', new Date());
+
+      gtag('config', 'G-GVJETMHGTF');
+  </script>
+  <% if ((controller.controller_path != "devise/sessions") && (controller.controller_path != "devise/registrations")) %>
+    <%= render partial: 'layouts/header' %>
+  <% end %>
+</head>
+
+<body class="d-flex flex-column min-vh-100" style="margin-top: 0px;">
+<%= yield %>
+
+<% if ((controller.controller_path != "devise/sessions") && (controller.controller_path != "devise/registrations")) %>
+  <%= render 'layouts/footer' %>
+<% end %>
+</body>
 </html>

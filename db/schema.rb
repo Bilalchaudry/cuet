@@ -81,6 +81,15 @@ ActiveRecord::Schema.define(version: 2023_01_29_105419) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "discount_codes", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "pusblish", default: false
+  end
+
   create_table "order_products", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "order_id", null: false

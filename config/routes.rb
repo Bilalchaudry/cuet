@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/products/show/:id', to: 'products#show', as: 'product_show'
   get '/order/:id', to: 'orders#show', as: 'order_show'
   get '/all_orders', to: 'orders#client_orders', as: 'all_orders'
+  get '/order_pdf', to: 'orders#get_pdf'
   # get '/shoping', to: 'shops#index'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
