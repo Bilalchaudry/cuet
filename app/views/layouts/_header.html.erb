@@ -14,12 +14,11 @@
           <li class="nav-item nav-btn-pdg active">
             <a class="nav-link active remove-underline nav-btn-font-wt nav-btn-font-sz active" aria-current="page" href="/">Home</a>
           </li>
+          <% ProductType.all.each do |product_type|  %>
           <li class="nav-item nav-btn-pdg">
-            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Products</a>
+            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="/product_type_products?name=<%= product_type.name %>"><%= product_type.name %></a>
           </li>
-          <li class="nav-item nav-btn-pdg">
-            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Shop</a>
-          </li>
+            <% end %>
           <li class="nav-item nav-btn-pdg">
             <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Sale</a>
           </li>

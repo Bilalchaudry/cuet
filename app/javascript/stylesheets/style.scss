@@ -4,6 +4,10 @@
 .set-nav-pad {
   padding-bottom: unset !important;
   padding-top: unset !important;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
 a.underline-hover:hover {
   text-decoration: underline !important;
@@ -110,4 +114,80 @@ a.underline-hover:hover {
 
 .slick-slide img {
   height: 250px;
+}
+.product_card {
+  border-style: solid;
+  border-radius: 6px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-right: unset;
+  padding-left: unset;
+}
+.top{
+
+  padding: 18px;
+  background-color: #ff8900;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #fff;
+}
+
+.middle{
+
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column !important;
+  padding: 10px;
+}
+
+
+
+.bottom{
+
+  padding: 10px;
+  background: #eee;
+  padding-top: 30px;
+
+}
+
+
+.input-group{
+
+  width: 109px;
+}
+
+
+.add{
+
+  height: 38px;
+  border-radius: 4px;
+  margin-left: 40px;
+  padding-right: 22px;
+  padding-left: 20px;
+}
+
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #8bbafe;
+  outline: 0;
+  box-shadow: none;
+}
+// for notification
+.notif {
+  width: 300px;
+  height: 50px;
+  background: darkgreen;
+  color: white;
+  border-radius: 3px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 100px;
+  left: 10px;
 }

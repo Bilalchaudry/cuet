@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'orders/create/:id', to: 'orders#create'
   get 'orders/update'
   get 'orders/place_order'
+  get 'product_type_products', to: 'products#product_type_products', as: 'products'
   post 'cart/add_to_cart/:id', to: 'cart#add_to_cart'
   get 'back', to: 'application#back'
   devise_for :clients
