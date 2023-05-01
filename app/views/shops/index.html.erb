@@ -28,7 +28,6 @@
     <% @all_products.each do |product| %>
       <div class="col-lg-3 mt-4 mb-4">
         <div class="top d-flex flex-row align-items-center">
-          <%#= image_tag ("core-img/card_logo.png"), class: "rounded-circle mr-2", width: "40", height: "70"%>
           <%= image_tag ("core-img/card_logo_cs.png"), class: "rounded-circle mr-2", width: "40", height: "70"%>
           <h6 class="mb-0 mr-2">Manufactured by Ceuticol</h6>
           <i class="fa fa-opencart"></i>
@@ -38,11 +37,12 @@
           <%= image_tag product.photo_url  rescue nil%>
         </div>
         <div class="product-description">
+          <p class="product-type-name"> <%= product.product_type.name %></p>
           <%= link_to product_show_path(id: product.id) do %>
-              <h3> <%= product.name %></h3>
+              <h5> <%= product.name %></h5>
             <% end %>
-          <p class="product-price"> <%= product.product_type.name %></p>
-            <p class="product-price">PKR <%= product.price %></p>
+          <h5 class="card-subtitle"> <%= product.title %></h5>
+            <p class="mt-2">PKR <%= product.price %></p>
             <div class="add-to-cart-btn">
               <% if current_client %>
                 <% certs = current_client&.certs.find_by(ordered?: false) if current_client&.certs %>

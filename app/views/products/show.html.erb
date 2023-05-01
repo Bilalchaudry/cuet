@@ -7,8 +7,9 @@
   </div>
 
   <div class="single_product_desc clearfix" style="height: 700px; overflow: scroll; padding-top: 0px;">
+    <p class="product-type-name"><%= @product.product_type.name %></p>
     <h2><%= @product.name %></h2>
-    <p class="product-desc"><%= @product.product_type.name %></p>
+    <h5 class="card-subtitle"> <%= @product.title %></h5>
     <p class="product-price">PKR <%= @product.price %></p>
     <p class="product-desc"><%= @product.description %></p>
     <p>Size : <%= @product.size %></p>

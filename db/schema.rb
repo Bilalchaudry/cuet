@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_29_105419) do
+ActiveRecord::Schema.define(version: 2023_05_01_184130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2023_01_29_105419) do
     t.string "photo"
     t.text "benefits"
     t.text "ingredients"
+    t.string "title"
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
   end
 

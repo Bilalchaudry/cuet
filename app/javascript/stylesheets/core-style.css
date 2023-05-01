@@ -1022,7 +1022,7 @@ img {
       margin-bottom: 0;
       font-family: "Ubuntu", sans-serif;
       font-size: 24px;
-      color: #dc0345;
+      color: darkgreen;
       font-weight: 700; }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .single_product_details_area .single_product_desc .product-price {
