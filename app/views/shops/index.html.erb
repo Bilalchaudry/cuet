@@ -38,7 +38,7 @@
         </div>
         <div class="product-description">
           <p class="product-type-name"> <%= product.product_type.name %></p>
-          <%= link_to product_show_path(id: product.id) do %>
+          <%= link_to product_show_path(id: product.friendly_id) do %>
               <h5> <%= product.name %></h5>
             <% end %>
           <h5 class="card-subtitle"> <%= product.title %></h5>

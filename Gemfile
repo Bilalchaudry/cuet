@@ -13,6 +13,7 @@ gem 'stripe-rails'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'carrierwave-aws'
 gem 'mini_magick'
+gem 'friendly_id', '~> 5.4.0'
 gem 'aws-sdk-rails'
 gem 'fog-aws'
 gem 'figaro'

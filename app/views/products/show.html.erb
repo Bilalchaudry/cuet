@@ -28,6 +28,23 @@
         </div>
       <% end %>
     </div>
+    <% if @product.faq %>
+      <div class="mt-4 mb-4">
+        <div class="accordion" id="myAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button type="button" class="accordion-button collapsed h-f-s" style="background: white;" data-bs-toggle="collapse" data-bs-target="#collapseOne">Frequently Asked Questions
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+              <div class="card-body">
+                <p><%= sanitize @product.faq %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </section>
 <script>
