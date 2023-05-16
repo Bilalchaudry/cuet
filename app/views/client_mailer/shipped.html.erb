@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<style>
-    table, th, td {
-        border: 1px solid black;
-    }
-</style>
 <html>
 <head>
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
@@ -13,8 +8,7 @@
   <div class="card card-body">
     <h3>Hey, <%= @user.name %></h3>
     <p>
-      We’re happy to let you know that we’ve received your order.You have to pay <%= @order.order_total %> for your
-      order.<br>
+      Your order has been shipped successfully.<br>
       Your order details are here:
     <table>
       <tr>
@@ -34,6 +28,8 @@
   </a>
     </p>
     <p>Thanks for ordering!</p>
+    <br>
+    <%= render 'layouts/footer' %>
   </div>
 </div>
 </body>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+<div class="container">
+  <div class="card card-body">
+    <h3>Hey, <%= @user.name %></h3>
+    <p>
+      This email confirms that your order has been canceled.<br>
+      <br>
+    <h5>Help us improve</h5>
+    <p>We'd love to know why you canceled.We're always looking for ways to get better.If you have feedback you think
+      would
+      be useful, please send us an email on
+      <a style="font-style: italic;" href="mailto:info@ceutisolpharma.com">info@ceutisolpharma.com</a> or you can
+      contact us
+      on <a href="tel:+923214646160">+923214646160</a> .</p>
+    </p>
+    <p>Thanks again for being a customer.</p>
+    <br>
+    <%= render 'layouts/footer' %>
+  </div>
+</div>
+</body>
+</html>

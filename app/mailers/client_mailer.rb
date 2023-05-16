@@ -11,4 +11,22 @@ class ClientMailer < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: 'Welcome to cuetisol')
   end
+
+  def shipped
+    @order = params[:order]
+    @user = @order.client
+    mail(to: @user.email, subject: 'Your package is on its way!')
+  end
+
+  def delivered
+    @order = params[:order]
+    @user = @order.client
+    mail(to: @user.email, subject: 'Order is delivered')
+  end
+
+  def cancelled
+    @order = params[:order]
+    @user = @order.client
+    mail(to: @user.email, subject: 'Order is cancelled')
+  end
 end
