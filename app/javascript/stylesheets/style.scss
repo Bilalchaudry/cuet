@@ -52,7 +52,7 @@ a.underline-hover:hover {
 }
 
 .slick-prev {
-  padding: 7px 16px 6px !important;
+  //padding: 7px 16px 6px !important;
   z-index: 999 !important;
   left: 0px !important;
   box-shadow: none;
@@ -79,7 +79,7 @@ a.underline-hover:hover {
   background-image: none !important;
 }
 .slick-next {
-  padding: 7px 38px 6px !important;
+  //padding: 7px 38px 6px !important;
   z-index: 999 !important;
   right: 0px !important;
   box-shadow: none;
@@ -89,12 +89,12 @@ a.underline-hover:hover {
   box-shadow: none;
 }
 .slick-slide {
-  margin: 0 27px !important;
+  //margin: 0 27px !important;
 }
 
 /* the parent */
 .slick-list {
-  margin: 0 -27px !important;
+  //margin: 0 -27px !important;
 }
 
 .slick-dots li button:not(.disabled):active {
@@ -230,4 +230,10 @@ button:focus:not(:focus-visible) {
 }
 .accordion-button::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns= 'http://www.w3.org/2000/svg' viewBox= '0 0 16 16' fill= '%23212529' %3e%3cpath fill-rule= 'evenodd' d= 'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z' /%3e%3c/svg%3e") !important;
+}
+
+@media (min-width: 1200px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1265px;
+  }
 }
