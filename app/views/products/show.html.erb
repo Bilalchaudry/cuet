@@ -14,8 +14,8 @@
     <p class="product-price">PKR <%= @product.price %></p>
     <p class="product-desc"><%= sanitize @product.description %></p>
     <p>Size : <%= @product.size %></p>
-    <p style="margin: 0px;"><b>Benefits</b> <%= sanitize @product.benefits %></p>
-    <p> Ingredeints: <%=  sanitize @product.ingredients %></p>
+<!--    <p style="margin: 0px;"><b>Benefits</b> <%#= sanitize @product.benefits %></p>-->
+<!--    <p> Ingredeints: <%#=  sanitize @product.ingredients %></p>-->
     <div class="select-box d-flex mt-10 mb-30">
       <%= form_with url: "/cart/add_to_cart/" + @product.id.to_s,model: @cert_product,method: :post do |form| %>
         <%= form.label :quantity, "Quantity" %>
