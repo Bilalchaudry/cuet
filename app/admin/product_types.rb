@@ -5,7 +5,7 @@ ActiveAdmin.register ProductType do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description
+  permit_params :name, :description, :seo_tags
   #
   # or
   #
@@ -14,5 +14,13 @@ ActiveAdmin.register ProductType do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  controller do
+    def find_resource
+      begin
+        scoped_collection.find_by(slug: params[:id])
+      rescue ActiveRecord::RecordNotFound
+        scoped_collection.find(params[:id])
+      end
+    end
+  end
 end
