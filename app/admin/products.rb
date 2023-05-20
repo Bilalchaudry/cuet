@@ -5,7 +5,7 @@ ActiveAdmin.register Product do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :title, :description, :size, :price, :benefits, :ingredients, :product_type_id, :photo, :faq, :slug
+  permit_params :name, :title, :description, :size, :price, :benefits, :ingredients, :product_type_id, :photo, :faq, :slug, :seo_tags
   form do |f|
     f.inputs "New Product" do
       f.input :product_type
@@ -18,9 +18,25 @@ ActiveAdmin.register Product do
       f.input :description
       f.input :benefits, as: :quill_editor
       f.input :faq, as: :quill_editor
+      f.input :seo_tags
       f.input :photo
     end
     f.actions
+  end
+
+  index do
+    column :id
+    column :name
+    column :title
+    column :price
+    column :product_type
+    column :description do |prod|
+      truncate(prod.description, :length => 40)
+    end
+    column :benefits do |prod|
+      truncate(raw(prod.benefits), :length => 40)
+    end
+    actions
   end
 
   show do
@@ -54,14 +70,8 @@ ActiveAdmin.register Product do
       end
     end
   end
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:name, :description, :size, :price, :product_type_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+
+
   controller do
     def find_resource
       begin

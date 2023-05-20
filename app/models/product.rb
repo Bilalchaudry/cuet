@@ -6,7 +6,10 @@ class Product < ApplicationRecord
 
 
   belongs_to :product_type
+
   has_many :cert_product
+  has_many :reviews
+
   validates_presence_of :title, :name, :description, :size, :price, :benefits, :photo, :ingredients, :slug
 
 end

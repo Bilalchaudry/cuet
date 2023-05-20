@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
 
   def product_type_products
     @product_type = ProductType.friendly.find(params[:id].parameterize)
-    @title = "Organic Skin Care Products | Ceutisol Pharma"
     @products = @product_type.products
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_02_215916) do
+ActiveRecord::Schema.define(version: 2023_05_20_121458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 2023_05_02_215916) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+    t.text "seo_tags"
     t.index ["slug"], name: "index_product_types_on_slug", unique: true
   end
 
@@ -146,7 +147,17 @@ ActiveRecord::Schema.define(version: 2023_05_02_215916) do
     t.string "title"
     t.text "faq"
     t.string "slug"
+    t.text "seo_tags"
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
   end
 
   create_table "slide_images", force: :cascade do |t|
@@ -176,4 +187,5 @@ ActiveRecord::Schema.define(version: 2023_05_02_215916) do
   add_foreign_key "orders", "certs"
   add_foreign_key "orders", "clients"
   add_foreign_key "products", "product_types"
+  add_foreign_key "reviews", "products"
 end
