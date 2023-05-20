@@ -15,7 +15,7 @@ ActiveAdmin.register Product do
       f.input :price, as: :number
       f.input :size
       f.input :ingredients, as: :quill_editor
-      f.input :description
+      f.input :description, as: :quill_editor
       f.input :benefits, as: :quill_editor
       f.input :faq, as: :quill_editor
       f.input :seo_tags

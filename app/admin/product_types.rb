@@ -5,7 +5,7 @@ ActiveAdmin.register ProductType do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description, :seo_tags
+  permit_params :name, :description, :seo_tags, :slug
   #
   # or
   #

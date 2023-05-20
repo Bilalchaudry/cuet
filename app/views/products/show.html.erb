@@ -12,7 +12,7 @@
     <h2><%= @product.name %></h2>
     <h5 class="card-subtitle"> <%= @product.title %></h5>
     <p class="product-price">PKR <%= @product.price %></p>
-    <p class="product-desc"><%= @product.description %></p>
+    <p class="product-desc"><%= sanitize @product.description %></p>
     <p>Size : <%= @product.size %></p>
     <p style="margin: 0px;"><b>Benefits</b> <%= sanitize @product.benefits %></p>
     <p> Ingredeints: <%=  sanitize @product.ingredients %></p>
