@@ -18,13 +18,13 @@
 <title><%= @title %></title>
 <meta name="description" content="Discover the power of Ceutisol Pharma Skin Care for healthy and glowing skin. Our premium skincare products are infused with natural ingredients to nourish and revitalize your skin.
 ">
-<div class="container" style="margin-top: 79px;">
-<section class="welcome_area bg-img background-overlay" style="background-image: url(<%= @cover_photo&.photo&.url %>);">
+  <main style="margin-top: 79px;">
+<!--<div class="container">-->
+<section class="bg-img background-overlay">
   <div class=" h-100">
-    <div class="row h-100 align-items-center">
+    <div class="h-100 align-items-center">
       <div class="col-12">
-        <div class="hero-content">
-        </div>
+        <%= image_tag @cover_photo&.photo&.url %>
       </div>
     </div>
   </div>
@@ -35,15 +35,15 @@
   <% end %>
 </div>
 <!--<section class="new_arrivals_area section-padding-80 clearfix">-->
-  <div class="">
-    <div class="row">
+<!--  <div class="">-->
+<!--    <div class="row">-->
       <div class="col-12">
         <div class="section-heading text-center" id="main-notif">
           <h2 class="abcd">Popular Products</h2>
         </div>
       </div>
-    </div>
-  </div>
+<!--    </div>-->
+<!--  </div>-->
 
   <div class="row">
     <% @all_products.each do |product| %>
@@ -99,7 +99,9 @@
       </div>
     <% end %>
   </div>
-</div>
+<!--</div>-->
+</main>
+
 <!--</section>-->
 
 <!--<footer class="footer_area clearfix">-->
