@@ -107,14 +107,14 @@ a.underline-hover:hover {
   background-color: transparent;
   background-image: none;
 }
-
-.slick-slide {
-  height: 250px;
-}
-
-.slick-slide img {
-  height: 250px;
-}
+//
+//.slick-slide {
+//  height: 250px;
+//}
+//
+//.slick-slide img {
+//  height: 250px;
+//}
 .product_card {
   border-style: solid;
   border-radius: 6px;
@@ -153,10 +153,10 @@ a.underline-hover:hover {
 }
 
 
-.input-group{
-
-  width: 109px;
-}
+//.input-group{
+//
+//  width: 109px;
+//}
 
 
 .add{
@@ -244,3 +244,15 @@ button:focus:not(:focus-visible) {
     margin-right: 0px !important;
   }
 //}
+.star-rating {
+  line-height:32px;
+  font-size:1.25em;
+  text-align: center;
+}
+
+.star-rating .fa-star{color: grey;}
+.user-review {
+  .checked {
+    color: darkgreen !important;
+  }
+}

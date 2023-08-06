@@ -29,27 +29,127 @@
         </div>
       <% end %>
     </div>
-    <% if @product.faq %>
+    <%# if @product.faq %>
       <div class="mt-4 mb-4">
         <div class="accordion" id="myAccordion">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-              <button type="button" class="accordion-button collapsed h-f-s" style="background: white;" data-bs-toggle="collapse" data-bs-target="#collapseOne">Frequently Asked Questions
+              <button type="button" class="accordion-button collapsed h-f-s" style="background: white;" data-bs-toggle="collapse" data-bs-target="#collapseOne">Reviews
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
               <div class="card-body">
-                <p><%= sanitize @product.faq %></p>
+                <%#= link_to 'Write a review', review_new_path(:product_id => @product.id) %>
+<!--                <p><%#= @product.reviews.last.comment %></p>-->
+                <!-- Scrollable modal -->
+                <a style="color: blue; text-decoration: underline; cursor: pointer;" data-bs-toggle="modal" id="review-btn" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Write a review</a>
+                <hr>
+                <p id="submit-msg" class="hide">Thank you for submitting the review!!</p>
+<!--                <section class="user-review">-->
+                  <div class="col-lg-12">
+                    <div class="user-review">
+                  <% @reviews.each do |review| %>
+                    <div class="fa fa-star <%= review.rating >= 1 ? "checked" : ' ' %>"></div>
+                    <div class="fa fa-star <%= review.rating >= 2 ? "checked" : ' ' %>"></div>
+                    <div class="fa fa-star <%= review.rating >= 3 ? "checked" : ' ' %>"></div>
+                    <div class="fa fa-star <%= review.rating >= 4 ? "checked" : ' ' %>"></div>
+                    <div class="fa fa-star <%= review.rating == 5 ? "checked" : ' ' %>"></div>
+                    <div> <b><%= review.name %></b> on <i> (<%= review.created_at.strftime('%b %d, %Y') %>)</i></div>
+                    <div> <%= review.comment %></div>
+                        <hr>
+                  <% end %>
+                    </div>
+                  </div>
+<!--                </section>-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 70px;">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h6 class="modal-title" id="exampleModalLabel">Pleas rate the product</h6>
+                        <button type="button" class="btn-close model-btn-c" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                            <div class="col-lg-12">
+                              <div class="star-rating">
+                                <span class="fa fa-star-o" data-rating="1"></span>
+                                <span class="fa fa-star-o" data-rating="2"></span>
+                                <span class="fa fa-star-o" data-rating="3"></span>
+                                <span class="fa fa-star-o" data-rating="4"></span>
+                                <span class="fa fa-star-o" data-rating="5"></span>
+                                <input type="hidden" name="whatever3" class="rating-value" value="0">
+                              </div>
+                        </div>
+                          <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="reviewer-name" value="<%= current_client&.first_name %>">
+                          </div>
+                          <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Email:</label>
+                            <input type="text" class="form-control" id="reviewer-email" value="<%= current_client&.email %>">
+                          </div>
+                          <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Comment:</label>
+                            <textarea class="form-control" id="comment"></textarea>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" style="background: darkgreen;" class="btn btn-primary" onclick='postReview("<%= @product.slug %>");'>POST</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    <% end %>
+    <%# end %>
   </div>
 </section>
 <script>
+    $('#exampleModal').appendTo("body")
+    var $star_rating = $('.star-rating .fa');
+
+    var SetRatingStar = function() {
+        return $star_rating.each(function() {
+            if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+                return $(this).removeClass('fa-star-o').addClass('fa-star');
+            } else {
+                return $(this).removeClass('fa-star').addClass('fa-star-o');
+            }
+        });
+    };
+
+    $star_rating.on('click', function() {
+        $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+        return SetRatingStar();
+    });
     function redirectBack() {
         window.location = "/";
+    }
+
+    function postReview(prod_id) {
+        let rating = $('.star-rating .fa-star').length;
+        let name = $('#reviewer-name').val();
+        let email = $('#reviewer-email').val();
+        let comment = $('#comment').val();
+        const review_data = new Object();
+        review_data.id = prod_id
+        review_data.rating = rating
+        review_data.name = name
+        review_data.email = email
+        review_data.comment = comment
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/review/create",
+            data: {review_data},
+            success: function (resp) {
+                $('#exampleModal').modal('hide')
+                $('#submit-msg').removeClass('hide');
+                $('#review-btn').addClass('hide');
+            }
+        })
+
     }
 </script>

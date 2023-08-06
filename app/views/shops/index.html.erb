@@ -6,10 +6,10 @@
 <meta name="application-name" content="Ceutisol Pharma">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Author" content="Ceutisol Pharma"/>
-<meta name="copyright" content="Ceutisol Pharma" />
+<meta name="copyright" content="Ceutisol Pharma"/>
 <meta name="distribution" content="global">
-<meta name="web_author" content="Ceutisol Pharma, Ceutisol Pharma, info@ceutisolpharma.com" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="web_author" content="Ceutisol Pharma, Ceutisol Pharma, info@ceutisolpharma.com"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="google" content="sitelinkssearchbox"/>
 <meta name='subject' content="Revitalize Your Skin with Ceutisol Pharma Skin Care">
 <meta name="publisher" content="Revitalize Your Skin with Ceutisol Pharma Skin Care">
@@ -18,149 +18,86 @@
 <title><%= @title %></title>
 <meta name="description" content="Discover the power of Ceutisol Pharma Skin Care for healthy and glowing skin. Our premium skincare products are infused with natural ingredients to nourish and revitalize your skin.
 ">
-  <main style="margin-top: 79px;">
-<!--<div class="container">-->
-<section class="bg-img background-overlay">
-  <div class=" h-100">
-    <div class="h-100 align-items-center">
-      <div class="col-12">
-        <%= image_tag @cover_photo&.photo&.url %>
-      </div>
-    </div>
-  </div>
-</section>
-<div id="autoplay">
-  <% @slid_images.each do |image| %>
-    <%= image_tag image.image_url %>
-  <% end %>
-</div>
-<!--<section class="new_arrivals_area section-padding-80 clearfix">-->
-<!--  <div class="">-->
-<!--    <div class="row">-->
-      <div class="col-12">
-        <div class="section-heading text-center" id="main-notif">
-          <h2 class="abcd">Popular Products</h2>
+<main style="margin-top: 79px;">
+  <section class="bg-img background-overlay">
+    <div class=" h-100">
+      <div class="h-100 align-items-center">
+        <div class="col-12">
+          <%= image_tag @cover_photo&.photo&.url %>
         </div>
       </div>
-<!--    </div>-->
-<!--  </div>-->
-
+    </div>
+  </section>
+  <div id="autoplay">
+    <% @slid_images.each do |image| %>
+      <%= image_tag image.image_url %>
+    <% end %>
+  </div>
+  <div class="col-12">
+    <div class="section-heading text-center" id="main-notif">
+      <h2 class="abcd">Popular Products</h2>
+    </div>
+  </div>
   <div class="row">
     <% @all_products.each do |product| %>
       <div class="col-lg-3 mt-4 mb-4">
         <div class="top d-flex flex-row align-items-center">
-          <%= image_tag ("core-img/card_logo_cs.png"), class: "rounded-circle mr-2", width: "40", height: "70"%>
+          <%= image_tag ("core-img/card_logo_cs.png"), class: "rounded-circle mr-2", width: "40", height: "70" %>
           <h6 class="mb-0 mr-2">Product of Ceuticol</h6>
           <i class="fa fa-opencart"></i>
 
         </div>
         <div class="product-img">
-          <%= image_tag product.photo_url  rescue nil%>
+          <%= image_tag product.photo_url rescue nil %>
         </div>
         <div class="product-description">
           <p class="product-type-name"> <%= product.product_type.name %></p>
           <%= link_to product_show_path(id: product.friendly_id) do %>
-              <h5> <%= product.name %></h5>
-            <% end %>
+            <h5> <%= product.name %></h5>
+          <% end %>
           <h5 class="card-subtitle"> <%= product.title %></h5>
-            <p class="mt-2">PKR <%= product.price %></p>
-            <div class="add-to-cart-btn">
-              <% if current_client %>
-                <% certs = current_client&.certs.find_by(ordered?: false) if current_client&.certs %>
-                <% if certs && certs&.cert_products.pluck(:product_id).include?(product.id) %>
-                  <a id="<%= product.id %>" style="pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;" onclick="saveData(<%= product.id %>, <%= product.name %>)" class="btn essence-btn">Already
-                    added</a>
-<!--                  <div class="bottom d-flex flex-row justify-content-center" style="border-bottom: 5px solid;">-->
+          <p class="mt-2">PKR <%= product.price %></p>
+          <div class="add-to-cart-btn">
+            <% if current_client %>
+              <% certs = current_client&.certs.find_by(ordered?: false) if current_client&.certs %>
+              <% if certs && certs&.cert_products.pluck(:product_id).include?(product.id) %>
+                <a id="<%= product.id %>" style="pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;" onclick="saveData(<%= product.id %>, <%= product.name %>)" class="btn essence-btn">Already
+                  added</a>
+                <!--                  <div class="bottom d-flex flex-row justify-content-center" style="border-bottom: 5px solid;">-->
 
-<!--                    <div class="input-group mb-3" style="width: 100% !important;">-->
-<!--                      <span class="input-group-text">-</span>-->
-                      <%# byebug %>
-<!--                      <input type="text" class="form-control" style="text-align: center;" value="<%#= certs&.cert_products.find_by(product_id: product.id).quantity %>">-->
-<!--                      <span class="input-group-text">+</span>-->
-<!--                    </div>-->
-<!--                  </div>-->
-                <% else %>
-                  <a id="<%= product.id %>" onclick="saveData(<%= product.id %>, '<%= product.name %>')" class="btn essence-btn"  style="border-bottom: 5px solid black; width: 100%; background: darkgreen;">Add to
-                    Cart</a>
-                <% end %>
+                <!--                    <div class="input-group mb-3" style="width: 100% !important;">-->
+                <!--                      <span class="input-group-text">-</span>-->
+                <%# byebug %>
+                <!--                      <input type="text" class="form-control" style="text-align: center;" value="<%#= certs&.cert_products.find_by(product_id: product.id).quantity %>">-->
+                <!--                      <span class="input-group-text">+</span>-->
+                <!--                    </div>-->
+                <!--                  </div>-->
               <% else %>
-<!--                <div class="bottom d-flex flex-row justify-content-center">-->
-
-<!--                  <div class="input-group mb-3" style="width: 100% !important;">-->
-<!--                    <span class="input-group-text">+</span>-->
-<!--                    <input type="text" class="form-control" style="text-align: center;" value="1">-->
-<!--                    <span class="input-group-text">-</span>-->
-<!--                  </div>-->
-<!--                </div>-->
-                <a href="/clients/sign_in" class="btn essence-btn" style="border-bottom: 5px solid black; width: 100% !important; background: darkgreen !important;">Add to Cart</a>
+                <a id="<%= product.id %>" onclick="saveData(<%= product.id %>, '<%= product.name %>')" class="btn essence-btn" style="border-bottom: 5px solid black; width: 100%; background: darkgreen;">Add
+                  to
+                  Cart</a>
               <% end %>
-            </div>
+            <% else %>
+              <!--                <div class="bottom d-flex flex-row justify-content-center">-->
+
+              <!--                  <div class="input-group mb-3" style="width: 100% !important;">-->
+              <!--                    <span class="input-group-text">+</span>-->
+              <!--                    <input type="text" class="form-control" style="text-align: center;" value="1">-->
+              <!--                    <span class="input-group-text">-</span>-->
+              <!--                  </div>-->
+              <!--                </div>-->
+              <a href="/clients/sign_in" class="btn essence-btn" style="border-bottom: 5px solid black; width: 100% !important; background: darkgreen !important;">Add
+                to Cart</a>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
-<!--</div>-->
 </main>
-
-<!--</section>-->
-
-<!--<footer class="footer_area clearfix">-->
-<!--  <div class="container">-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 col-md-6">-->
-<!--        <div class="single_widget_area d-flex mb-30">-->
-<!--          <div class="footer_widget_menu">-->
-<!--            <ul>-->
-<!--              <li><a href="#">Shop</a></li>-->
-<!--              <li><a href="/blogs/index">Blogs</a></li>-->
-<!--              <li><a href="#">Contact</a></li>-->
-<!--            </ul>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="col-12 col-md-6">-->
-<!--        <div class="single_widget_area mb-30">-->
-<!--          <ul class="footer_widget_menu">-->
-<!--            <li class="<%#= 'hide' if !current_client %>"><a href="/all_orders">Your Orders</a></li>-->
-<!--            <li><a href="#">Shipping and Delivery</a></li>-->
-<!--            <li><a href="#">Guides</a></li>-->
-<!--            <li><a href="#">Privacy Policy</a></li>-->
-<!--            <li><a href="#">Terms of Use</a></li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <div class="row align-items-end">-->
-
-<!--      <div class="col-12 col-md-6">-->
-<!--        <div class="single_widget_area">-->
-<!--          <div class="footer_social_area">-->
-<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
-<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>-->
-<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
-<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>-->
-<!--            <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <div class="row mt-5">-->
-<!--      <div class="col-md-12 text-center">-->
-<!--        <p>-->
-<!--          Copyright &copy;<script>document.write(new Date().getFullYear());</script>-->
-<!--          All rights reserved.-->
-<!--        </p>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--  </div>-->
-<!--</footer>-->
 <script>
     var products = [];
-    $(function() {
+    $(function () {
         $('#autoplay').slick({
             dots: true,
             infinite: true,
@@ -169,8 +106,10 @@
             arrows: true,
             autoplay: true,
             autoplaySpeed: 2000,
+            adaptiveHeight: true
         });
     })
+
     function saveData(product_id, product_name) {
         var style = "pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;";
         document.getElementById(product_id).setAttribute("style", style);
@@ -186,12 +125,12 @@
                 $(div).addClass('notif')
                 div.innerHTML = product_name + " is added."
                 document.getElementById("main-notif").appendChild(div);
-                setTimeout(function() {
+                setTimeout(function () {
                     $(div).fadeOut('fast');
                 }, 2000);
                 document.getElementById("cert-value").innerHTML = data.count
                 var link = document.getElementById("essenceCartBtn")
-                link.href = "/cart/show_cart/"+data.cert_id
+                link.href = "/cart/show_cart/" + data.cert_id
                 $("#cart_partial").removeClass("hide");
             },
         })

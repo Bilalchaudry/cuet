@@ -24,6 +24,7 @@ $( document ).ready(function() {
         slidesToShow: 2,
         arrows: true,
         autoplay: true,
+        adaptiveHeight: true,
         autoplaySpeed: 2000,
         responsive: [
             {

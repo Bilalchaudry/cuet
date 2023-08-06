@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # get 'reviews/new'
+  # get 'reviews/create'
+  # get 'reviews/index'
   # get '/sitemap', to: 'testsuite#sitemap'
   # get '/sitemap', to: 'testsuite#sitemap'
   get 'blogs/index'
@@ -24,5 +27,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'shops#index'
   get ':id', to: 'products#product_type_products', as: 'product_type_products'
+
+  #Reviews
+  get '/review/new', to: 'reviews#new'
+  post 'review/create', to: 'reviews#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

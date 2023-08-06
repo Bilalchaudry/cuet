@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   def show
     @cert_product = CertProduct.new
     @product = Product.friendly.find(params[:id].parameterize)
+    @reviews = @product.reviews.where(publish: true)
     @cert = current_client&.certs&.find_by(ordered?: false)
     @cert_product = @cert.cert_products&.find_by(product_id: @product.id) if @cert.present?
   end

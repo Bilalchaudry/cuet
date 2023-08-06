@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_20_121458) do
+ActiveRecord::Schema.define(version: 2023_05_21_193838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,9 @@ ActiveRecord::Schema.define(version: 2023_05_20_121458) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "product_id", null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.boolean "publish", default: false
     t.index ["product_id"], name: "index_reviews_on_product_id"
   end
 
