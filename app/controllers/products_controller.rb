@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def product_type_products
-    @product_type = ProductType.friendly.find(params[:id].parameterize)
-    @products = @product_type.products
+    @product_type = ProductType.friendly.find_by(slug: params[:id].parameterize)
+    @products = @product_type&.products
   end
 end

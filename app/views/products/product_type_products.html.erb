@@ -1,64 +1,80 @@
-<%= raw @product_type.seo_tags %>
-<div class="row pt-4 mt-4">
-  <div class="container pt-4 mt-4">
-    <div class="row">
-      <div class="col-12">
-        <div class="section-heading text-center">
-          <h2 style="color: darkgreen;"><%= @product_type.name %> Products</h2>
+<%#= raw @product_type.seo_tags %>
+<% if !@product_type %>
+  <div class="row pt-4 mt-4">
+    <div class="container pt-4 mt-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-heading text-center">
+            <h2 style="color: darkgreen;">Products are coming soon...!</h2>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <% @products.each do |product| %>
-    <div class="col-lg-3 mb-4">
-      <div class="top d-flex flex-row align-items-center">
-        <%= image_tag ("core-img/card_logo_cs.png"), class: "rounded-circle mr-2", width: "40", height: "70"%>
-        <h6 class="mb-0 mr-2">Product of Ceuticol</h6>
-        <i class="fa fa-opencart"></i>
-
-      </div>
-      <div class="product-img">
-        <%= image_tag product.photo_url  rescue nil%>
-      </div>
-      <div class="product-description">
-        <p class="product-type-name"> <%= product.product_type.name %></p>
-        <%= link_to product_show_path(id: product.friendly_id) do %>
-          <h5> <%= product.name %></h5>
-        <% end %>
-        <h5 class="card-subtitle"> <%= product.title %></h5>
-        <p class="mt-2">PKR <%= product.price %></p>
-        <div class="add-to-cart-btn">
-          <% if current_client %>
-            <% certs = current_client&.certs.find_by(ordered?: false) if current_client&.certs %>
-            <% if certs && certs&.cert_products.pluck(:product_id).include?(product.id) %>
-              <a id="<%= product.id %>" style="pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;" onclick="saveData(<%= product.id %>)" class="btn essence-btn">Already
-                added</a>
-              <!--                  <div class="bottom d-flex flex-row justify-content-center" style="border-bottom: 5px solid;">-->
-
-              <!--                    <div class="input-group mb-3" style="width: 100% !important;">-->
-              <!--                      <span class="input-group-text">-</span>-->
-              <%# byebug %>
-              <!--                      <input type="text" class="form-control" style="text-align: center;" value="<%#= certs&.cert_products.find_by(product_id: product.id).quantity %>">-->
-              <!--                      <span class="input-group-text">+</span>-->
-              <!--                    </div>-->
-              <!--                  </div>-->
-            <% else %>
-              <a id="<%= product.id %>" onclick="saveData(<%= product.id %>)" class="btn essence-btn" style="border-bottom: 5px solid black; width: 100% !important; background: darkgreen !important;">Add to
-                Cart</a>
-            <% end %>
-          <% else %>
-            <!--                <div class="bottom d-flex flex-row justify-content-center">-->
-
-            <!--                  <div class="input-group mb-3" style="width: 100% !important;">-->
-            <!--                    <span class="input-group-text">+</span>-->
-            <!--                    <input type="text" class="form-control" style="text-align: center;" value="1">-->
-            <!--                    <span class="input-group-text">-</span>-->
-            <!--                  </div>-->
-            <!--                </div>-->
-            <a href="/clients/sign_in" class="btn essence-btn" style="border-bottom: 5px solid black; width: 100% !important; background: darkgreen !important;">Add to Cart</a>
-          <% end %>
+<% else %>
+  <div class="row pt-4 mt-4">
+    <div class="container pt-4 mt-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-heading text-center">
+            <h2 style="color: darkgreen;"><%= @product_type.name %> Products</h2>
+          </div>
         </div>
       </div>
     </div>
-  <% end %>
-</div>
+    <% @products.each do |product| %>
+      <div class="col-lg-3 mb-4">
+        <div class="top d-flex flex-row align-items-center">
+          <%= image_tag ("core-img/card_logo_cs.png"), class: "rounded-circle mr-2", width: "40", height: "70" %>
+          <h6 class="mb-0 mr-2">Product of Ceuticol</h6>
+          <i class="fa fa-opencart"></i>
+
+        </div>
+        <div class="product-img">
+          <%= image_tag product.photo_url rescue nil %>
+        </div>
+        <div class="product-description">
+          <p class="product-type-name"> <%= product.product_type.name %></p>
+          <%= link_to product_show_path(id: product.friendly_id) do %>
+            <h5> <%= product.name %></h5>
+          <% end %>
+          <h5 class="card-subtitle"> <%= product.title %></h5>
+          <p class="mt-2">PKR <%= product.price %></p>
+          <div class="add-to-cart-btn">
+            <% if current_client %>
+              <% certs = current_client&.certs.find_by(ordered?: false) if current_client&.certs %>
+              <% if certs && certs&.cert_products.pluck(:product_id).include?(product.id) %>
+                <a id="<%= product.id %>" style="pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;" onclick="saveData(<%= product.id %>)" class="btn essence-btn">Already
+                  added</a>
+                <!--                  <div class="bottom d-flex flex-row justify-content-center" style="border-bottom: 5px solid;">-->
+
+                <!--                    <div class="input-group mb-3" style="width: 100% !important;">-->
+                <!--                      <span class="input-group-text">-</span>-->
+                <%# byebug %>
+                <!--                      <input type="text" class="form-control" style="text-align: center;" value="<%#= certs&.cert_products.find_by(product_id: product.id).quantity %>">-->
+                <!--                      <span class="input-group-text">+</span>-->
+                <!--                    </div>-->
+                <!--                  </div>-->
+              <% else %>
+                <a id="<%= product.id %>" onclick="saveData(<%= product.id %>)" class="btn essence-btn" style="border-bottom: 5px solid black; width: 100% !important; background: darkgreen !important;">Add
+                  to
+                  Cart</a>
+              <% end %>
+            <% else %>
+              <!--                <div class="bottom d-flex flex-row justify-content-center">-->
+
+              <!--                  <div class="input-group mb-3" style="width: 100% !important;">-->
+              <!--                    <span class="input-group-text">+</span>-->
+              <!--                    <input type="text" class="form-control" style="text-align: center;" value="1">-->
+              <!--                    <span class="input-group-text">-</span>-->
+              <!--                  </div>-->
+              <!--                </div>-->
+              <a href="/clients/sign_in" class="btn essence-btn" style="border-bottom: 5px solid black; width: 100% !important; background: darkgreen !important;">Add
+                to Cart</a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
