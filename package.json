@@ -22,4 +22,4 @@
     "@webpack-cli/serve": "^1.6.0",
     "webpack-dev-server": "^4.7.1"
   }
-}
+} 
