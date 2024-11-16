@@ -31,10 +31,10 @@
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag "application", media: "all" %>
-  <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application' %>
-  <%= stylesheet_pack_tag "application", media: "all" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload", defer: true %>
+
+  <%= stylesheet_link_tag "application", "data-turbolinks-track": "reload" %>
+
   <!-- Google tag (gtag.js) -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
@@ -53,6 +53,7 @@
   <% if ((controller.controller_path != "devise/sessions") && (controller.controller_path != "devise/registrations")) %>
     <%= render partial: 'layouts/header' %>
   <% end %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
 </head>
 
 <body class="d-flex flex-column min-vh-100" style="margin-top: 0px;">
