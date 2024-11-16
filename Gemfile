@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.7'
+ruby '3.3.4'
 gem 'activeadmin'
 gem 'devise'
 gem 'cancancan'
@@ -18,17 +18,19 @@ gem 'aws-sdk-rails'
 gem 'fog-aws'
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.0.4', '>= 6.0.4.1'
+gem 'rails', '~> 7.1.5'
 #text editor active_Admin
 gem 'activeadmin_quill_editor'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
-gem 'pg', '~> 0.18.4'
+gem 'pg', '~> 1.5', '>= 1.5.9'
 gem "font-awesome-rails"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'psych', '< 4'
+gem "puma"
+gem "webrick"
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
