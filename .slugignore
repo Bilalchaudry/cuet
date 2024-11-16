@@ -1,0 +1,10 @@
+node_modules/
+test/
+log/
+tmp/
+*.md
+*.json
+.git
+.gitignore
+Dockerfile
+README.md
