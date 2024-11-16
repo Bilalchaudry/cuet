@@ -7,3 +7,7 @@
 Dockerfile
 README.md
 /test
+node_modules/
+.git/
+.gitignore
+.DS_Store
