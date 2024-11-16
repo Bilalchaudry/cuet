@@ -3,7 +3,6 @@ test/
 log/
 tmp/
 *.md
-*.json
 .git
 .gitignore
 Dockerfile
