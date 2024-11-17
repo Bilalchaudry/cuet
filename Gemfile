@@ -26,7 +26,8 @@ gem 'activeadmin_quill_editor'
 gem 'pg', '~> 1.5', '>= 1.5.9'
 gem "font-awesome-rails"
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+# gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-heroku', '3.0.0'
 # Use Puma as the app server
 gem 'psych', '< 4'
 gem "puma"
