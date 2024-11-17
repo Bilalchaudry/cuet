@@ -23,7 +23,7 @@
     <div class=" h-100">
       <div class="h-100 align-items-center">
         <div class="col-12">
-          <%= image_tag @cover_photo&.photo&.url, style: "width: 100% !important;"%>
+          <%#= image_tag @cover_photo&.photo&.url, style: "width: 100% !important;"%>
         </div>
       </div>
     </div>
@@ -42,9 +42,9 @@
     <% @all_products.each do |product| %>
       <div class="col-lg-3 mt-4 mb-4">
         <div class="top d-flex flex-row align-items-center">
-          <%= image_tag ("core-img/card_logo_cs.png"), class: "rounded-circle mr-2", width: "40", height: "70" %>
-          <h6 class="mb-0 mr-2">Product of Ceutisol</h6>
-          <i class="fa fa-opencart"></i>
+          <%#= image_tag ("core-img/card_logo_cs.png"), class: "rounded-circle mr-2", width: "40", height: "70" %>
+<!--          <h6 class="mb-0 mr-2">Product of Ceutisol</h6>-->
+<!--          <i class="fa fa-opencart"></i>-->
 
         </div>
         <div class="product-img">
@@ -97,18 +97,18 @@
 </main>
 <script>
     var products = [];
-    $(function () {
-        $('#autoplay').slick({
-            dots: true,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 2,
-            arrows: true,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            adaptiveHeight: true
-        });
-    })
+    // $(function () {
+    //     $('#autoplay').slick({
+    //         dots: true,
+    //         infinite: true,
+    //         speed: 300,
+    //         slidesToShow: 2,
+    //         arrows: true,
+    //         autoplay: true,
+    //         autoplaySpeed: 2000,
+    //         adaptiveHeight: true
+    //     });
+    // })
 
     function saveData(product_id, product_name) {
         var style = "pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;";
