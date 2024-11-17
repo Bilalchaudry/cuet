@@ -8,19 +8,24 @@ const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
 module.exports = {
     entry: {
-        // Your main entry points for JavaScript and CSS
         application: [
             "./app/javascript/application.js",
-            "./app/assets/stylesheets/application.css",  // Include your CSS
+            "./app/assets/stylesheets/application.css",
         ],
-        // custom: './app/assets/stylesheets/custom.scss', // Keep separate custom.scss entry if needed
     },
     module: {
         rules: [
-            // Add rule for SCSS/CSS handling
             {
                 test: /\.(sa|sc|c)ss$/i,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            },
+            {
+                // Rule to handle images
+                test: /\.(png|jpg|jpeg|gif|svg)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'images/[name][ext]', // Output images in an `images` folder
+                },
             },
         ],
     },
@@ -29,21 +34,22 @@ module.exports = {
     },
     devtool: 'source-map', // for debugging
     output: {
-        filename: "[name].js",  // Outputs JS with entry point name
-        sourceMapFilename: "[file].map", // Outputs source maps
-        chunkFormat: "module", // Use module chunk format
-        path: path.resolve(__dirname, 'app/assets/builds'), // Ensure output is placed in assets/builds
+        filename: "[name].js",
+        sourceMapFilename: "[file].map",
+        chunkFormat: "module",
+        path: path.resolve(__dirname, 'app/assets/builds'),
+        publicPath: '/assets/', // Ensures assets are served from `/assets/`
     },
     plugins: [
-        new RemoveEmptyScriptsPlugin(),  // Removes empty JS files if no corresponding CSS
+        new RemoveEmptyScriptsPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].css', // Outputs CSS file with entry name
+            filename: '[name].css',
         }),
         new webpack.optimize.LimitChunkCountPlugin({
-            maxChunks: 1,  // Limits number of chunks to avoid multiple JS files
+            maxChunks: 1,
         }),
     ],
     optimization: {
-        moduleIds: 'deterministic', // Ensures better caching with stable module IDs
+        moduleIds: 'deterministic',
     },
 };
