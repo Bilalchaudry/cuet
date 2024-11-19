@@ -19,7 +19,7 @@
 <meta name="description" content="Discover the power of Ceutisol Pharma Skin Care for healthy and glowing skin. Our premium skincare products are infused with natural ingredients to nourish and revitalize your skin.
 ">
 <main style="margin-top: 79px;">
-  <section class="bg-img background-overlay" style="margin-top: -18px;">
+  <section class="bg-img background-overlay" id="banner-image" style="margin-top: -18px;">
     <!-- WhatsApp Button -->
     <div id="whatsapp-widget" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
       <a href="https://wa.me/923414442230" target="_blank">
@@ -88,37 +88,22 @@
 </main>
 <script>
     let isScrolling = false; // Flag to track if a scroll is already in progress
-        function moveToAllProducts() {
-            const section = document.getElementById('all-products-section');
-            const headerHeight = document.getElementById('nav_header_area').offsetHeight; // Adjust this to your header's element
+    function moveToAllProducts() {
+        const section = document.getElementById('all-products-section');
+        const headerHeight = document.getElementById('nav_header_area').offsetHeight; // Sticky header height
+        const bannerHeight = document.getElementById('banner-image').offsetHeight; // Banner image height
 
-            // Smooth scroll to the section only if it's not already in view
-            const sectionTop = section.offsetTop;
-            const currentScroll = window.scrollY;
+        // Scroll to the section
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
 
-            // If the section is already in view, do nothing
-            if (currentScroll >= sectionTop - headerHeight && currentScroll <= sectionTop + section.offsetHeight) {
-                return;
-            }
-
-            // Prevent multiple clicks while scrolling
-            if (isScrolling) return;
-
-            isScrolling = true;
-
-            // Scroll to the section
-            section.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-
-            // Adjust the scroll position after the scroll is complete
-            setTimeout(() => {
-                window.scrollBy(0, -headerHeight); // Adjust to avoid being covered by the sticky header
-                isScrolling = false; // Reset flag after scroll is done
-            }, 500); // This timeout ensures the scroll action is complete before adjusting the position
-        }
-
+        // Adjust scroll position after a short delay (to ensure scroll is finished)
+        setTimeout(() => {
+            window.scrollBy(0, -(headerHeight + bannerHeight)); // Adjust by both header and banner height
+        }, 600); // Adjust this timeout delay if necessary
+    }
 
     function saveData(product_id, product_name) {
         var style = "pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;";
