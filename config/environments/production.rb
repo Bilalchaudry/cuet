@@ -99,5 +99,16 @@ Rails.application.configure do
   config.assets.compile = false  # Don't compile on the fly in production
   config.assets.digest = true    # Enable digesting for cache-busting
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?  # Serve precompiled files
+  config.action_mailer.default_url_options = { host: 'www.ceutisolpharma.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'heroku.com',
+    user_name: 'apikey',
+    password: ENV['SEND_GRID_KEY'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
 end
