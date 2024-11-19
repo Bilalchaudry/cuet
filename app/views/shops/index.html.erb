@@ -36,7 +36,7 @@
       </div>
     </div>
   </section>
-  <section class="cta-section-alt">
+  <section class="cta-section-alt mt-1">
     <div class="cta-content-alt">
       <h2>Discover Our Best Products</h2>
       <p>Explore our range of products that prioritize your health and well-being. Find the right product for your needs today.</p>
@@ -87,16 +87,39 @@
   </div>
 </main>
 <script>
-  function moveToAllProducts(){
-      const section = document.getElementById('all-products-section');
-      const headerHeight = document.getElementById('nav_header_area').offsetHeight;
-      // Scroll to the section with an offset to account for the sticky header
-      window.scrollTo({
-          top: section.offsetTop - headerHeight,
-          behavior: 'smooth'
-      });
+    let isScrolling = false; // Flag to track if a scroll is already in progress
+        function moveToAllProducts() {
+            const section = document.getElementById('all-products-section');
+            const headerHeight = document.getElementById('nav_header_area').offsetHeight; // Adjust this to your header's element
 
-  }
+            // Smooth scroll to the section only if it's not already in view
+            const sectionTop = section.offsetTop;
+            const currentScroll = window.scrollY;
+
+            // If the section is already in view, do nothing
+            if (currentScroll >= sectionTop - headerHeight && currentScroll <= sectionTop + section.offsetHeight) {
+                return;
+            }
+
+            // Prevent multiple clicks while scrolling
+            if (isScrolling) return;
+
+            isScrolling = true;
+
+            // Scroll to the section
+            section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            // Adjust the scroll position after the scroll is complete
+            setTimeout(() => {
+                window.scrollBy(0, -headerHeight); // Adjust to avoid being covered by the sticky header
+                isScrolling = false; // Reset flag after scroll is done
+            }, 500); // This timeout ensures the scroll action is complete before adjusting the position
+        }
+
+
     function saveData(product_id, product_name) {
         var style = "pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;";
         document.getElementById(product_id).setAttribute("style", style);
