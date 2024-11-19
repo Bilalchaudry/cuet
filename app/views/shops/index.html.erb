@@ -39,7 +39,20 @@
   <section class="cta-section-alt mt-1">
     <div class="cta-content-alt">
       <h2 class="lineUp">Discover Our Best Products</h2>
-      <p>Explore our range of products that prioritize your health and well-being. Find the right product for your needs today.</p>
+      <p class="waviy">
+        <span style="--i:1">Explore</span>
+        <span style="--i:2">our</span>
+        <span style="--i:3">range</span>
+        <span style="--i:4">of</span>
+        <span style="--i:5">products</span>
+        <span style="--i:6">that</span>
+        <span style="--i:7">prioritize</span>
+        <span style="--i:8">your</span>
+        <span style="--i:9">beauty</span>
+        <span style="--i:10">and</span>
+        <span style="--i:11">well-being</span>
+        <span style="--i:12">.</span></p>
+        <p class="flipX">Find the right product for your needs today.</p>
       <a href="/<%=ProductType.first.friendly_id %>" class="cta-button-alt">Browse Our Products</a>
     </div>
   </section>
@@ -135,6 +148,27 @@
             transform: translateY(0%);
         }
     }
+
+    /* flipping class and key frames*/
+    .flipX {
+        animation: 1s anim-flipX ease infinite;
+    }
+    @keyframes anim-flipX {
+        0% {
+            opacity: 0;
+            transform: rotateX(90deg);
+        }
+        50% {
+            opacity: 1;
+            transform: rotateX(720deg);
+        }
+        100% {
+            /* animate nothing to pause animation at the end */
+            opacity: 1;
+            transform: rotateX(720deg);
+        }
+    }
+
     .cta-section-alt {
         background-color: #E29578; /* Dark background for contrast */
         color: #fff;
@@ -168,6 +202,28 @@
     .cta-section-alt .cta-button-alt:hover {
         background-color: #006D77; /* Darker orange */
         transform: translateY(-3px);
+    }
+    .waviy {
+        position: relative;
+        font-size: 60px;
+    }
+    .waviy span {
+        /*font-family: 'Alfa Slab One', cursive;*/
+        position: relative;
+        display: inline-block;
+        color: #fff;
+        text-transform: uppercase;
+        animation: waviy 2s infinite;
+        animation-delay: calc(.1s * var(--i));
+
+    }
+    @keyframes waviy {
+        0%,40%,100% {
+            transform: translateY(0)
+        }
+        20% {
+            transform: translateY(-20px)
+        }
     }
 
 </style>
