@@ -33,20 +33,15 @@
       <%= image_tag image.image_url %>
     <% end %>
   </div>
-  <div class="col-12">
-    <div class="section-heading text-center" id="main-notif">
-      <h2 class="abcd">Popular Products</h2>
-    </div>
-  </div>
   <div class="row">
     <% @all_products.each do |product| %>
       <div class="col-lg-3 mt-4 mb-4">
-        <div class="top d-flex flex-row align-items-center">
+<!--        <div class="top d-flex flex-row align-items-center">-->
           <%#= image_tag ("core-img/card_logo_cs.png"), class: "rounded-circle mr-2", width: "40", height: "70" %>
 <!--          <h6 class="mb-0 mr-2">Product of Ceutisol</h6>-->
 <!--          <i class="fa fa-opencart"></i>-->
 
-        </div>
+<!--        </div>-->
         <div class="product-img">
           <%= image_tag product.photo_url rescue nil %>
         </div>

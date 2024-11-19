@@ -3,18 +3,19 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
 require("@rails/activestorage").start()
-window.jQuery = $;
-window.$ = $;
 require("slick-carousel")
 
 import "slick-carousel/slick/slick.scss"
 import "slick-carousel/slick/slick-theme.scss"
 import '../stylesheets/application.scss';
 import 'bootstrap';
+import $ from 'jquery';
 
-$( document ).ready(function() {
+window.jQuery = $;
+window.$ = $;
+
+$(document).ready(function() {
     $('#autoplay').slick({
         dots: true,
         infinite: true,

@@ -35,7 +35,9 @@
                 <input type="radio" id="html" name="fav_language" class="mt-3" value="c_o_d" checked>
                  <label for="html">Cash on delivery</label><br>
                 <p class="pt-1">Cash on bank is coming soon.</p>
-                <a type="button" data-method="post" id="pay-btn" href="/orders/create/<%= @cert.id %>" class="btn btn-primary btn-lg btn-block w-100">Proceed</a>
+                <%= form_with url: "/orders/create/#{@cert.id}", method: :post do %>
+                  <%= submit_tag "Proceed", class: "btn btn-primary btn-lg btn-block w-100" %>
+                <% end %>
               </div>
             </div>
           </div>

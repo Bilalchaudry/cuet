@@ -22,6 +22,10 @@ body {
     body {
       margin-top: 80px; } }
 
+.primary-color {
+  background-color: #83c5be !important;
+}
+
 h1,
 h2,
 h3,
@@ -1765,6 +1769,7 @@ img {
           font-weight: 300; }
           .contact-area .contact-info .contact-address p:last-child a:hover {
             color: #0315ff; }
+
 
 /* ##### The End ##### */
 

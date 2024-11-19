@@ -14,4 +14,17 @@ class Client < ApplicationRecord
   after_create do
     self.update(name: self.first_name+ " " + self.last_name)
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "first_name", "last_name", "email", "phone", "created_at", "updated_at"]
+  end
+
+  # If associations are searchable, define them too
+  # def self.ransackable_associations(auth_object = nil)
+  #   ["associated_model_name"] # Replace with actual association names, if needed
+  # end
+  def self.ransackable_associations(auth_object = nil)
+    ["certs", "orders"]
+  end
+
 end

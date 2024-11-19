@@ -1,5 +1,5 @@
 <header class="header_area">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light set-nav-pad ">
+  <nav class="text-white navbar navbar-expand-lg navbar-light bg-light set-nav-pad " style="background-color: #83c5be !important;">
     <div class="container-fluid">
       <a class="navbar-brand remove-underline nav-btn-font-wt" style="font-size: 35px;" href="/">
           <%= image_tag ("core-img/cs_logo_land.png"), class: "d-inline-block align-text-center", width: "130", height: "70"%>
@@ -12,23 +12,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-2">
           <li class="nav-item nav-btn-pdg active">
-            <a class="nav-link active remove-underline nav-btn-font-wt nav-btn-font-sz active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active remove-underline nav-btn-font-wt active text-white" aria-current="page" href="/">Home</a>
           </li>
           <% ProductType.all.each do |product_type|  %>
-          <li class="nav-item nav-btn-pdg">
-            <%= link_to product_type.name, product_type_products_path(product_type.friendly_id), class: "nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" %>
-<!--            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="/product_type_products?name=<%#= product_type.friendly_id %>"><%#= product_type.name %></a>-->
+          <li class="nav-item nav-btn-pdg text-white">
+            <%= link_to product_type.name, product_type_products_path(product_type.friendly_id), class: "nav-link remove-underline nav-btn-font-wt  underline-hover text-white" %>
+<!--            <a class="nav-link remove-underline nav-btn-font-wt underline-hover" href="/product_type_products?name=<%#= product_type.friendly_id %>"><%#= product_type.name %></a>-->
           </li>
             <% end %>
           <li class="nav-item nav-btn-pdg">
-            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Sale</a>
+            <a class="nav-link remove-underline nav-btn-font-wt underline-hover text-white" href="#">Sale</a>
           </li>
           <li class="nav-item nav-btn-pdg">
-            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="#">Contact
+            <a class="nav-link remove-underline nav-btn-font-wt underline-hover text-white" href="#">Contact
               Us</a>
           </li>
           <li class="nav-item nav-btn-pdg">
-            <a class="nav-link remove-underline nav-btn-font-wt nav-btn-font-sz  underline-hover" href="/blogs/index">Blog</a>
+            <a class="nav-link remove-underline nav-btn-font-wt underline-hover text-white" href="/blogs/index">Blog</a>
           </li>
         </ul>
         <span id="show-cert">
@@ -37,11 +37,11 @@
         <span>
       <% if current_client %>
       <div class=" nav-btn-pdg">
-          <a data-method="delete" class="nav-btn-font-sz" href="/clients/sign_out"><img src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/30/000000/external-logout-screen-from-the-working-portfolio-of-a-user-classic-bold-tal-revivo.png"/></a>
+          <a data-method="delete" class="text-white" href="/clients/sign_out"><img src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/30/000000/external-logout-screen-from-the-working-portfolio-of-a-user-classic-bold-tal-revivo.png"/></a>
         </div>
       <% else %>
          <div class="nav-btn-pdg">
-          <a href="/clients/sign_in" class="nav-btn-font-sz"><img src="https://img.icons8.com/material-rounded/30/000000/user.png"/></a>
+          <a href="/clients/sign_in" class="text-white"><img src="https://img.icons8.com/material-rounded/30/000000/user.png"/></a>
         </div>
       <% end %>
           </span>
