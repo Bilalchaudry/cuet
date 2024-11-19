@@ -36,6 +36,13 @@
       </div>
     </div>
   </section>
+  <section class="cta-section-alt">
+    <div class="cta-content-alt">
+      <h2>Discover Our Best Products</h2>
+      <p>Explore our range of products that prioritize your health and well-being. Find the right product for your needs today.</p>
+      <a href="#" onclick="moveToAllProducts()" class="cta-button-alt">Browse Our Products</a>
+    </div>
+  </section>
   <div id="autoplay">
     <% @slid_images.each do |image| %>
       <%= image_tag image.image_url %>
@@ -45,7 +52,7 @@
     <div class="section-heading text-center" id="main-notif">
     </div>
   </div>
-  <div class="row">
+  <div class="row" id="all-products-section">
     <% @all_products.each do |product| %>
       <div class="col-lg-3 mt-4 mb-4">
         <div class="product-img">
@@ -80,20 +87,16 @@
   </div>
 </main>
 <script>
-    var products = [];
-    // $(function () {
-    //     $('#autoplay').slick({
-    //         dots: true,
-    //         infinite: true,
-    //         speed: 300,
-    //         slidesToShow: 2,
-    //         arrows: true,
-    //         autoplay: true,
-    //         autoplaySpeed: 2000,
-    //         adaptiveHeight: true
-    //     });
-    // })
+  function moveToAllProducts(){
+      const section = document.getElementById('all-products-section');
+      const headerHeight = document.getElementById('nav_header_area').offsetHeight;
+      // Scroll to the section with an offset to account for the sticky header
+      window.scrollTo({
+          top: section.offsetTop - headerHeight,
+          behavior: 'smooth'
+      });
 
+  }
     function saveData(product_id, product_name) {
         var style = "pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;";
         document.getElementById(product_id).setAttribute("style", style);
@@ -120,3 +123,40 @@
         })
     }
 </script>
+<style>
+    .cta-section-alt {
+        background-color: #E29578; /* Dark background for contrast */
+        color: #fff;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .cta-section-alt .cta-content-alt h2 {
+        color: #fff;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .cta-section-alt .cta-content-alt p {
+        color: #fff;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .cta-section-alt .cta-button-alt {
+        background-color: #006D77;
+        /*color: #fff;*/
+        padding: 12px 25px;
+        font-size: 18px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-section-alt .cta-button-alt:hover {
+        background-color: #006D77; /* Darker orange */
+        transform: translateY(-3px);
+    }
+
+</style>
