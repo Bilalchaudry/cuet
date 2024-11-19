@@ -40,7 +40,7 @@
     <div class="cta-content-alt">
       <h2>Discover Our Best Products</h2>
       <p>Explore our range of products that prioritize your health and well-being. Find the right product for your needs today.</p>
-      <a href="#" onclick="moveToAllProducts()" class="cta-button-alt">Browse Our Products</a>
+      <a href="/<%=ProductType.first.friendly_id %>" class="cta-button-alt">Browse Our Products</a>
     </div>
   </section>
   <div id="autoplay">
@@ -87,24 +87,6 @@
   </div>
 </main>
 <script>
-    function moveToAllProducts() {
-        const section = document.getElementById('all-products-section');
-        const headerHeight = document.getElementById('nav_header_area').offsetHeight; // Sticky header height
-        // const bannerHeight = document.getElementById('banner-image').offsetHeight; // Banner image height
-
-        // Scroll to the section with smooth scroll
-        section.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-
-        // Adjust the scroll position to account for the header and banner
-        setTimeout(() => {
-            window.scrollBy(0, -(headerHeight)); // Adjust for sticky header and banner
-        }, 600); // Adjust this delay if necessary
-    }
-
-
     function saveData(product_id, product_name) {
         var style = "pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;";
         document.getElementById(product_id).setAttribute("style", style);
