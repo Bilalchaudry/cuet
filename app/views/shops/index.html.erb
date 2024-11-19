@@ -38,7 +38,7 @@
   </section>
   <section class="cta-section-alt mt-1">
     <div class="cta-content-alt">
-      <h2>Discover Our Best Products</h2>
+      <h2 class="lineUp">Discover Our Best Products</h2>
       <p>Explore our range of products that prioritize your health and well-being. Find the right product for your needs today.</p>
       <a href="/<%=ProductType.first.friendly_id %>" class="cta-button-alt">Browse Our Products</a>
     </div>
@@ -114,6 +114,27 @@
     }
 </script>
 <style>
+    /* lineup class and keyframes */
+    .lineUp {
+        animation: 2s anim-lineUp ease-out infinite;
+    }
+    @keyframes anim-lineUp {
+        0% {
+            opacity: 0;
+            transform: translateY(80%);
+        }
+        20% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
     .cta-section-alt {
         background-color: #E29578; /* Dark background for contrast */
         color: #fff;
