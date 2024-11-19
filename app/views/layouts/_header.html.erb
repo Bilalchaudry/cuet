@@ -41,7 +41,12 @@
         </div>
       <% else %>
          <div class="nav-btn-pdg">
-          <a href="/clients/sign_in" class="text-white"><img src="https://img.icons8.com/material-rounded/30/000000/user.png"/></a>
+          <a href="/clients/sign_in" class="text-white">
+<!--            <img src="https://img.icons8.com/material-rounded/30/000000/user.png"/>-->
+            <%#= image_tag ("core-img/cs_logo_white.png"), class: "d-inline-block align-text-center", width: "130", height: "70"%>
+            <%= image_tag ("core-img/user.png")%>
+
+          </a>
         </div>
       <% end %>
           </span>

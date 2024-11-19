@@ -3,5 +3,9 @@
 //= link_tree ../builds
 //= link core-img/favicon.png
 //= link core-img/cs_logo_land.png
-//= link core-img/bag.svg
 //= link core-img/cs_logo_white.png
+//= link core-img/bag.png
+//= link core-img/mail.png
+//= link core-img/pin.png
+//= link core-img/user.png
+//= link core-img/telephone-symbol-button.png

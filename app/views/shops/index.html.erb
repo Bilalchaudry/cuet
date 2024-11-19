@@ -56,7 +56,7 @@
             <% if current_client %>
               <% certs = current_client&.certs.find_by(ordered?: false) if current_client&.certs %>
               <% if certs && certs&.cert_products.pluck(:product_id).include?(product.id) %>
-                <a id="<%= product.id %>" style="pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;" onclick="saveData(<%= product.id %>, <%= product.name %>)" class="btn essence-btn">Already
+                <a id="<%= product.id %>" style="pointer-events:none; cursor:default; width: 100%; background: grey;" onclick="saveData(<%= product.id %>, <%= product.name %>)" class="btn essence-btn">Already
                   added</a>
                 <!--                  <div class="bottom d-flex flex-row justify-content-center" style="border-bottom: 5px solid;">-->
 
@@ -68,7 +68,7 @@
                 <!--                    </div>-->
                 <!--                  </div>-->
               <% else %>
-                <a id="<%= product.id %>" onclick="saveData(<%= product.id %>, '<%= product.name %>')" class="btn essence-btn" style="border-bottom: 5px solid black; width: 100%; background: darkgreen;">Add
+                <a id="<%= product.id %>" onclick="saveData(<%= product.id %>, '<%= product.name %>')" class="btn essence-btn" style="width: 100%; background: #006D77;">Add
                   to
                   Cart</a>
               <% end %>
@@ -81,7 +81,7 @@
               <!--                    <span class="input-group-text">-</span>-->
               <!--                  </div>-->
               <!--                </div>-->
-              <a href="/clients/sign_in" class="btn essence-btn" style="border-bottom: 5px solid black; width: 100% !important; background: darkgreen !important;">Add
+              <a href="/clients/sign_in" class="btn essence-btn" style="width: 100% !important; background: #006D77 !important;">Add
                 to Cart</a>
             <% end %>
           </div>

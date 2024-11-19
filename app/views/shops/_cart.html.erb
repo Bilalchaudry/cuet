@@ -1,5 +1,5 @@
 <div class="cart-area <%=  'hide' if @cart_available == false %> " id="cart_partial">
   <a href="<%= (current_client&.certs&.find_by(ordered?: false)) ? show_cart_path(:id => current_client.certs.find_by(ordered?: false).id) : new_client_session_path %>" id="essenceCartBtn">
-    <%= image_tag 'core-img/bag.svg', style: "max-width: 27px;" %>
-    <span id="cert-value"><%= (current_client&.certs) ? current_client.certs.find_by(ordered?: false)&.cert_products&.count : '' %></span></a>
+    <%= image_tag 'core-img/bag.png', style: "max-width: 27px;" %>
+    <span id="cert-value white-text" style="color: white !important;"><%= (current_client&.certs) ? current_client.certs.find_by(ordered?: false)&.cert_products&.count : '' %></span></a>
 </div>

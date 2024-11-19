@@ -25,7 +25,9 @@
             </div>
             <div class="col-md-2 pt-3">
                             <span class="btn btn-danger" id="price_<%= product.id %>">
-                              <%= link_to "Remove", delete_cart_product_path(:p_id => product.id), :method => 'delete' %>
+                              <%= form_with(url: delete_cart_product_path(p_id: product.id), method: :delete, local: true) do |form| %>
+                                <%= form.submit "Removeee", class: 'btn btn-danger' %>
+                              <% end %>
                             </span>
             </div>
           </div>
