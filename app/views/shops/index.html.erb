@@ -19,14 +19,14 @@
 <meta name="description" content="Discover the power of Ceutisol Pharma Skin Care for healthy and glowing skin. Our premium skincare products are infused with natural ingredients to nourish and revitalize your skin.
 ">
 <main style="margin-top: 79px;">
-  <section class="bg-img background-overlay" id="banner-image" style="margin-top: -18px;">
+  <section class="bg-img background-overlay" style="margin-top: -18px;">
     <!-- WhatsApp Button -->
     <div id="whatsapp-widget" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
       <a href="https://wa.me/923414442230" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat with us on WhatsApp" style="width: 60px; height: 60px; border-radius: 50%;"/>
       </a>
     </div>
-    <div class=" h-100">
+    <div class=" h-100" id="banner-image">
       <div class="h-100 align-items-center">
         <div class="col-12">
           <% if @cover_photo %>
@@ -87,23 +87,23 @@
   </div>
 </main>
 <script>
-    let isScrolling = false; // Flag to track if a scroll is already in progress
     function moveToAllProducts() {
         const section = document.getElementById('all-products-section');
         const headerHeight = document.getElementById('nav_header_area').offsetHeight; // Sticky header height
-        const bannerHeight = document.getElementById('banner-image').offsetHeight; // Banner image height
+        // const bannerHeight = document.getElementById('banner-image').offsetHeight; // Banner image height
 
-        // Scroll to the section
+        // Scroll to the section with smooth scroll
         section.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
 
-        // Adjust scroll position after a short delay (to ensure scroll is finished)
+        // Adjust the scroll position to account for the header and banner
         setTimeout(() => {
-            window.scrollBy(0, -(headerHeight + bannerHeight)); // Adjust by both header and banner height
-        }, 600); // Adjust this timeout delay if necessary
+            window.scrollBy(0, -(headerHeight)); // Adjust for sticky header and banner
+        }, 600); // Adjust this delay if necessary
     }
+
 
     function saveData(product_id, product_name) {
         var style = "pointer-events:none; cursor:default; border-bottom: 5px solid black; width: 100%; background: grey;";
