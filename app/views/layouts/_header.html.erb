@@ -1,3 +1,9 @@
+<div class="top_banner">
+  <% tb = TopBanner.find_by(publish: true) %>
+  <% if tb %>
+    <p> <%= tb.description.html_safe %></p>
+  <% end %>
+</div>
 <header class="header_area">
   <nav class="text-white navbar navbar-expand-lg navbar-light bg-light set-nav-pad" id="nav_header_area" style="background-color: #83c5be !important;">
     <div class="container-fluid">
@@ -64,3 +70,16 @@
     </div>
   </nav>
 </header>
+<style>
+    .top_banner {
+        background-color: #E29578;
+        padding: 8px 0;
+        p {
+            color: white;
+            line-height: 1;
+            margin-bottom: 0;
+            text-align: center;
+            font-size: large;
+        }
+    }
+</style>
