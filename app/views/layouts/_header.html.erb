@@ -72,6 +72,9 @@
 </header>
 <style>
     .top_banner {
+        position: sticky; /* or -webkit-sticky for older Safari if needed */
+        top: 0;           /* how far from the top it sticks */
+        z-index: 999;
         background-color: #E29578;
         padding: 8px 0;
         p {
