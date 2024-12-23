@@ -13,7 +13,7 @@
   <div class="card card-body">
     <h3>Hey, <%= @user.name %></h3>
     <p>
-      We’re happy to let you know that we’ve received your order.You have to pay <%= @order.order_total %> for your
+      We’re happy to let you know that we’ve received your order.You have to pay <%= @order.order_total > 999 ? @order.order_total : @order.order_total.to_i + 100 %> for your
       order.<br>
       Your order details are here:
     <table>
@@ -29,7 +29,10 @@
       <% end %>
     </table>
     <br>
-    You can also view your order here : <a class="green-btn long-text" href="/order/<%= @order.id %>">
+    <% if @order.order_total < 1000 %>
+      <span>100 PKR of delivery charges also included in the total.</span>
+    <% end %>
+    You can also view your order here : <a class="green-btn long-text" href="https://www.ceutisolpharma.com/order/<%= @order.id %>">
     <b>Order link</b>
   </a>
     </p>

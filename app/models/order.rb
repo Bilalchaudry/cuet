@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :client
   has_many :order_products
+  belongs_to :cert
   enum status: {
     Pending: 0,
     Shipped: 1,

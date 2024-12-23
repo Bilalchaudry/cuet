@@ -5,14 +5,15 @@ ActiveAdmin.register Product do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :title, :description, :size, :price, :benefits, :ingredients, :product_type_id, :photo, :faq, :slug, :seo_tags
+  permit_params :name, :title, :description, :size, :price, :benefits, :ingredients, :product_type_id, :photo, :faq, :slug, :seo_tags, :original_price
   form do |f|
     f.inputs "New Product" do
       f.input :product_type
       f.input :name
       f.input :title
       f.input :slug
-      f.input :price, as: :number
+      f.input :original_price, as: :number , label: "Original Price"
+      f.input :price, as: :number , label: "Chargeable Price"
       f.input :size
       f.input :ingredients, as: :quill_editor
       f.input :description, as: :quill_editor
@@ -28,6 +29,7 @@ ActiveAdmin.register Product do
     column :id
     column :name
     column :title
+    column :original_price
     column :price
     column :product_type
     column :description do |prod|
@@ -43,6 +45,7 @@ ActiveAdmin.register Product do
     attributes_table do
       row :name
       row :title
+      row :original_price
       row :price
       row :slug
       row :size

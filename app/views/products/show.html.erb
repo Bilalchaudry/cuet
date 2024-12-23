@@ -11,7 +11,22 @@
     <p class="product-type-name"><%= @product.product_type.name %></p>
     <h2><%= @product.name %></h2>
     <h5 class="card-subtitle"> <%= @product.title %></h5>
-    <p class="product-price">PKR <%= @product.price %></p>
+    <div class="row">
+      <% if @product.original_price %>
+        <div class="price-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <p class="mt-1" style="text-decoration: line-through; font-size: 20px; margin: 0; color: #006D77;">
+            PKR <%= @product.original_price %>
+          </p>
+          <span class="mt-2" style="font-size: 20px; margin: 0; color: #E29578;">
+    PKR <%= @product.price %>
+  </span>
+        </div>
+
+      <% else %>
+        <p class="mt-2" style="font-size: 20px; color: #E29578;">PKR <%= @product.price %></p>
+      <% end %>
+    </div>
+<!--    <p class="product-price">PKR <%#= @product.price %></p>-->
     <p class="product-desc"><%= sanitize @product.description %></p>
     <p>Size : <%= @product.size %></p>
 <!--    <p style="margin: 0px;"><b>Benefits</b> <%#= sanitize @product.benefits %></p>-->

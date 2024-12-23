@@ -1,12 +1,29 @@
 ActiveAdmin.register Order do
   permit_params :status
 
+
+  index do
+    selectable_column
+    column :client
+    column :cert
+    column :order_total do |order|
+      order.order_total < 1000 ? order.order_total + 100 : order.order_total
+    end
+    column :status
+    column :created_at
+    column :updated_at
+    actions
+  end
+
   show do
     attributes_table do
       row('Cleint Name') { order.client.name }
       row('Cleint Email') { order.client.email }
       row('Phone') { order.client.phone }
-      row('Order Total PKR') { order.order_total }
+      row('Order Total PKR') do
+        total = order.order_total
+        total < 1000 ? total + 100 : total
+      end
       row('Status') { order.status }
       row('Address') { order.client.address }
       row "PDF" do

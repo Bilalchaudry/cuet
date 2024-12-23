@@ -24,9 +24,9 @@
               <span class="product-prices" id="price_<%= product.id %>"><%= product.price * @cert_products.find_by(product_id: product.id).quantity %></span>
             </div>
             <div class="col-md-2 pt-3">
-                            <span class="btn btn-danger" id="price_<%= product.id %>">
+                            <span class="btn" style="background-color: #006D77;" id="price_<%= product.id %>">
                               <%= form_with(url: delete_cart_product_path(p_id: product.id), method: :delete, local: true) do |form| %>
-                                <%= form.submit "Removeee", class: 'btn btn-danger' %>
+                                <%= form.submit "Remove", class: 'btn', style: "color: white;"%>
                               <% end %>
                             </span>
             </div>

@@ -77,7 +77,21 @@
             <h5> <%= product.name %></h5>
           <% end %>
           <h5 class="card-subtitle"> <%= product.title %></h5>
-          <p class="mt-2">PKR <%= product.price %></p>
+          <div class="row">
+            <% if product.original_price %>
+              <div class="price-container" style="display: flex; justify-content: space-between; align-items: center;">
+                <p class="mt-1" style="text-decoration: line-through; font-size: 20px; margin: 0; color: #006D77;">
+                  PKR <%= product.original_price %>
+                </p>
+                <span class="1" style="font-size: 20px; margin: 0; color: #E29578;">
+    PKR <%= product.price %>
+  </span>
+              </div>
+
+            <% else %>
+              <p class="mt-1" style="font-size: 20px; color: #E29578;">PKR <%= product.price %></p>
+            <% end %>
+          </div>
           <div class="add-to-cart-btn">
             <% if current_client %>
               <% certs = current_client&.certs.find_by(ordered?: false) if current_client&.certs %>
@@ -127,6 +141,23 @@
     }
 </script>
 <style>
+    .price-container {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .price-container p {
+        text-decoration: line-through;
+        font-size: 20px;
+        color: black;
+    }
+
+    .price-container span {
+        font-size: 20px;
+        color: black;
+    }
     /* lineup class and keyframes */
     .lineUp {
         animation: 2s anim-lineUp ease-out infinite;
